@@ -15,8 +15,8 @@ program pooc_man{
     keyboard.up().onPressDo({pacman.cambioDireccion(arriba)})
     keyboard.down().onPressDo({pacman.cambioDireccion(abajo)})
 
-    game.onTick(500, "movimiento", {pacman.moverse()})
+    game.onTick(1000, "movimiento", {pacman.moverse()})
 
     game.start()
-
+// porque teniamos esto, mira
 }

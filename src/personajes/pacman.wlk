@@ -1,46 +1,60 @@
 object pacman {
-  var haciaDondeIr = derecha  
-  
-  var property position = game.center() 
+    var haciaDondeIr = izquierda
 
-  method image() {
-    return "pacMan.png"
-  }
+    var property position = game.at(10,7)
+
+    method image() {
+        return "pacMan.png"
+    }
 
     method cambioDireccion(direccion) {
-      haciaDondeIr = direccion
+        haciaDondeIr = direccion
     }
 
   method moverse() {
-    position = haciaDondeIr.mover()
+      position = game.at(haciaDondeIr.x(self.position()), haciaDondeIr.y(self.position()))
   }
 
 }
 
 object arriba {
-  method mover() {
-    return game.at(pacman.position.x(), (pacman.position.y())+1.min(game.height()-1))
+  method x(posicion) {
+    return posicion.x()
   }
-    
+
+  method y(posicion) {
+    return (game.height()-1).min((posicion.y())+1)
+  }
 } 
 
 object izquierda {
-    method mover() {
-    return game.at(0.max(pacman.position.x() - 1), pacman.position.y())
+  method x (posicion){
+    return 0.max(posicion.x() - 1)
+  }
+
+  method y(posicion) {
+    return posicion.y()
   }
     
 } 
 object derecha {
-  method mover() {
-    return game.at((game.width()-1).min(pacman.position.x() + 1), pacman.position.y())
+  method x (posicion){
+    return (game.width()-1).min(posicion.x() + 1)
+  }
+
+  method y(posicion) {
+    return posicion.y()
   }
     
 } 
 
 object abajo {
-    method mover() {
-    return game.at(pacman.position.x(), 0.max(pacman.position.y()-1))
-  }
     
-} 
+    method x (posicion){
+    return posicion.x()
+  }
 
+  method y(posicion) {
+    return 0.max(posicion.y()-1)
+  }
+} 
