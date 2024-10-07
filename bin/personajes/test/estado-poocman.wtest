@@ -1,0 +1,26 @@
+import wollok.game.*
+import src.personajes.fantasmas.*
+import src.personajes.pacman.*
+
+
+
+describe "Fantasmas y poocman" {
+
+    method initialize(){
+        game.addVisual(pacman)
+        game.cellSize(40)
+        game.width(25)
+        game.height(15)
+        pacman.level().iniciarNivel()
+    }
+
+test "cambia a ssj" {
+    pacman.position(game.at(4,8))
+    pacman.moverse()
+    assert.equals( ssj ,pacman.estado())
+    
+  
+}
+
+}
+
