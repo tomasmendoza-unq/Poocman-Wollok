@@ -6,8 +6,17 @@ class Fantasma {
     method image(){
         return "pepita.png"
     }
+    method remove() {
+        game.removeVisual(self)
+      
+    }
 
     method colisionarConPoocman(poocman){
-        poocman.asesinado()
+       if (poocman.estatransformado()){
+        self.remove()
+       }
+       
+       else { poocman.asesinado()
     }
+}  
 }

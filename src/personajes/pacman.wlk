@@ -2,13 +2,14 @@ import wollok.game.*
 import src.escenarios.level1.level1
 
 object pacman {
-    var haciaDondeIr = izquierda
+    var haciaDondeIr = derecha
     var property  level = level1
+    var property  estado = normal 
 
     var property position = game.at(10,7)
 
     method image() {
-        return "pacMan.png"
+        return "pacMan-"+estado+"-"+haciaDondeIr+".png"
     }
 
     method cambioDireccion(direccion) {
@@ -37,7 +38,31 @@ object pacman {
   method sigueVivo(){
     return not level.hayFantasma(position)
   }
+  method transformacionssj() {
+      estado = ssj
+      game.schedule(10000, {self.normal()})
+    
+  }
+  method normal() {
+    estado = normal 
+    }
+    method estatransformado() {
+      return estado == ssj 
+      
+    }
 
+  
+}
+object normal {
+  method image() {
+    return "normal"
+    
+  }
+  
+}
+object  ssj  {
+  
+  
 }
 
 

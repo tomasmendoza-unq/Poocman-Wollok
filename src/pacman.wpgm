@@ -21,7 +21,7 @@ program pooc_man{
 
     // EVENTOS
 
-    game.onTick(1000, "movimiento", {pacman.moverse()})
+    game.onTick(250, "movimiento", {pacman.moverse()})
 
     game.start()
 // porque teniamos esto, mira

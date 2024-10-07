@@ -10,6 +10,7 @@ object level1 {
 
     method iniciarNivel(){    
         game.addVisual(new HeladoComun())
+        game.addVisual(new Superchocolate())
         fantasmasLevel.forEach({fantasma => game.addVisual(fantasma)})
 
     }
