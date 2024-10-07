@@ -1,19 +1,25 @@
 import wollok.game.*
 import src.personajes.pacman.*
+import src.comidas.helados.*
 
 
 program pooc_man{
+    // CONFIGURACION JUEGO
     game.boardGround("pacman-30th-anniversary.png")
-
-    game.addVisual(pacman)
     game.cellSize(40)
     game.width(25)
     game.height(15)
+    pacman.level().iniciarNivel()
+    game.addVisual(pacman)
+    // TECLADO
 
     keyboard.left().onPressDo({pacman.cambioDireccion(izquierda)})
     keyboard.right().onPressDo({pacman.cambioDireccion(derecha)})
     keyboard.up().onPressDo({pacman.cambioDireccion(arriba)})
     keyboard.down().onPressDo({pacman.cambioDireccion(abajo)})
+    keyboard.p().onPressDo({pacman.puntuacion()})
+
+    // EVENTOS
 
     game.onTick(1000, "movimiento", {pacman.moverse()})
 
