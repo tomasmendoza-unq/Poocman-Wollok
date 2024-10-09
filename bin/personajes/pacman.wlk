@@ -18,10 +18,27 @@ object pacman {
           haciaDondeIr = estado.haciaDondeIr(direccion)
     }
 
+    method solida() {
+		  return false
+	}
+
 
   method moverse() {
-      position = game.at(haciaDondeIr.x(self.position()), haciaDondeIr.y(self.position()))
+      const next = game.at(haciaDondeIr.x(self.position()), haciaDondeIr.y(self.position()))
+
+      self.validarAtravesables(next)
+      position = next
   }
+
+  method haySolido(_position) {
+		return game.getObjectsIn(_position).any({cosa => cosa.solida()})
+	}
+
+  method validarAtravesables(_position) {
+		if (self.haySolido(_position)) {
+			self.error("No puedo ir ahí")
+		}
+	}
 
   method puntuacion(){
     game.say(self, "Puntuacion: " + level.puntuacion())

@@ -4,8 +4,13 @@ class Fantasma {
     var property position = game.at(0,0) 
 
     method image(){
-        return "pepita.png"
+        return "fantasma.png"
     }
+
+    method solida() {
+		  return true
+	}
+
     method remove() {
         game.removeVisual(self)
       
@@ -18,5 +23,7 @@ class Fantasma {
        
        else { poocman.asesinado()
     }
+
+    
 }  
 }

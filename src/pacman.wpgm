@@ -2,16 +2,17 @@ import wollok.game.*
 import src.personajes.pacman.*
 import src.comidas.helados.*
 import src.managers.posicionManager.*
+import escenarios.laberinto.*
 
 
 program pooc_man{
     // CONFIGURACION JUEGO
-    game.boardGround("pacman-30th-anniversary.png")
-    game.cellSize(40)
-    game.width(25)
-    game.height(15)
+    //game.boardGround("pacman-30th-anniversary.png")
+    //game.cellSize(50)
+    //game.width(25)
+    //game.height(15)
     pacman.level().iniciarNivel()
-    game.addVisual(pacman)
+    //game.addVisual(pacman)
     // TECLADO
 
     game.onCollideDo(pacman, {obj => obj.colisionarConPoocman(pacman)})
@@ -23,8 +24,8 @@ program pooc_man{
 
     // EVENTOS
 
-    game.onTick(250, "movimiento", {pacman.moverse()})
+    game.onTick(100, "movimiento", {pacman.moverse()})
 
     game.start()
-// porque teniamos esto, mira
+
 }
