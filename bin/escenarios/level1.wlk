@@ -3,17 +3,29 @@ import src.comidas.helados.*
 import src.personajes.fantasmas.*
 import src.managers.fantasmaManager.*
 import src.escenarios.laberinto.*
+import src.escenarios.pantallaInicial.*
 
 object level1 {
     var puntuacion = 0
 
 
     method iniciarNivel(){    
-    mapa.dibujar()
+        self.validarPantallaDeInicio()
+        game.removeVisual(mainScreen)
+        mapa.dibujar()
     //game.addVisual(new HeladoComun())
     //game.addVisual(new BebidaHelada())
     //fantasmaManager.crearFantasmas()
     //game.addVisual(new Superchocolate())
+    }
+
+    method validarPantallaDeInicio() {
+        const posicionMainScreen = mainScreen.menu()
+        const objetosEnOrigen = game.getObjectsIn(posicionMainScreen)
+        
+        if (not objetosEnOrigen.contains(mainScreen)){
+            self.error("No estoy en la pantalla principal")
+        }
     }
 
     method puntuacion(){

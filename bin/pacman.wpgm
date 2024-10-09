@@ -3,15 +3,24 @@ import src.personajes.pacman.*
 import src.comidas.helados.*
 import src.managers.posicionManager.*
 import escenarios.laberinto.*
+import escenarios.pantallaInicial.*
 
 
 program pooc_man{
     // CONFIGURACION JUEGO
     //game.boardGround("pacman-30th-anniversary.png")
-    //game.cellSize(50)
-    //game.width(25)
-    //game.height(15)
-    pacman.level().iniciarNivel()
+    game.cellSize(50)
+    game.width(25)
+    game.height(25)
+    
+    game.addVisual(mainScreen)
+
+    keyboard.enter().onPressDo({
+        
+        pacman.level().iniciarNivel()
+    })
+    
+    
     //game.addVisual(pacman)
     // TECLADO
 
