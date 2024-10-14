@@ -1,35 +1,52 @@
 import src.personajes.pacman.*
 import game.*
+import managers.posicionManager.*
+import escenarios.pantallaInicial.*
 
 
 describe "Movimiento pacman" {
 
     method initialize(){
-    game.addVisual(pacman)
-    game.cellSize(40)
-    game.width(25)
-    game.height(15)
+   // game.addVisual(pacman)
+   // game.cellSize(40)
+   // game.width(25)
+   // game.height(15)
+
+    game.addVisual(mainScreen)
+    pacman.level().iniciarNivel()
     }
 
     
   test "movimiento pacman hacia la derecha" {
     pacman.cambioDireccion(derecha)
     pacman.moverse()
-    assert.equals(11, pacman.position().x())  // Cambiado a 11, porque parte de la posición x = 10
+    assert.equals(4, pacman.position().x())  // Cambiado a 4, porque parte de la posición x = 3
   }
   test "movimiento pacman hacia la izquierda" {
     pacman.cambioDireccion(izquierda)
     pacman.moverse()
-    assert.equals(9, pacman.position().x())  // Cambiado a 9, porque parte de la posición x = 10
+    assert.equals(2, pacman.position().x())  // Cambiado a 9, porque parte de la posición x = 10
   }
   test "movimiento pacman hacia la arriba" {
     pacman.cambioDireccion(arriba)
-    pacman.moverse()
-    assert.equals(8, pacman.position().y())  // Cambiado a 8, porque parte de la posición y = 7
+    assert.throwsException({pacman.moverse()})  // Cambiado a 8, porque parte de la posición y = 7
   }
   test "movimiento pacman hacia la abajo" {
     pacman.cambioDireccion(abajo)
+    assert.throwsException({pacman.moverse()})  // Cambiado a 8, porque parte de la posición y = 7
+  }
+
+  test "movimiento pacman hacia abajo a la derecha" {
+    pacman.cambioDireccion(abajo)
+    pacman.position(game.at(6,3))
     pacman.moverse()
-    assert.equals(6, pacman.position().y())  // Cambiado a 6, porque parte de la posición x = 7
+    assert.equals(2, pacman.position().y())  // Cambiado a 4, porque parte de la posición x = 3
+  }
+
+  test "movimiento pacman hacia arriba a la derecha" {
+    pacman.cambioDireccion(arriba)
+    pacman.position(game.at(6,3))
+    pacman.moverse()
+    assert.equals(4, pacman.position().y())  // Cambiado a 4, porque parte de la posición x = 3
   }
 }

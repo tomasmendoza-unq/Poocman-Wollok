@@ -1,24 +1,31 @@
 import wollok.game.*
 import src.personajes.fantasmas.*
 import src.personajes.pacman.*
+import escenarios.pantallaInicial.*
+import managers.posicionManager.*
+import comidas.helados.*
 
 
 
 describe "Fantasmas y poocman" {
 
     method initialize(){
-        game.addVisual(pacman)
-        game.cellSize(40)
-        game.width(25)
-        game.height(15)
-        pacman.level().iniciarNivel()
+   // game.addVisual(pacman)
+   // game.cellSize(40)
+   // game.width(25)
+   // game.height(15)
+
+    game.addVisual(mainScreen)
+    pacman.level().iniciarNivel()
     }
 
-    test "poocman come un helado comun en (10,10) y tiene 1000 puntos" {
+    test "poocman come una bolita comun en (4,1) y tiene 100 puntos" {
+        const bolita = game.getObjectsIn(game.at(4,1))
         assert.equals(0, pacman.level().puntuacion())
-        pacman.position(game.at(11,10))
+        pacman.cambioDireccion(derecha)
         pacman.moverse()
-        assert.equals(1000, pacman.level().puntuacion())
+        bolita.get(0).colisionarConPoocman(pacman)
+        assert.equals(100, pacman.level().puntuacion())
     }  
     
 }

@@ -4,6 +4,7 @@ import comidas.helados.*
 import escenarios.level1.*
 import wollok.game.*
 
+
 object _ {
     method dibujarEn(position) {
 
@@ -26,6 +27,12 @@ object m {
     object f {
         method dibujarEn(position) {
         game.addVisual(new Bolita(position = position))
+    }
+    }
+
+    object h {
+        method dibujarEn(position) {
+        game.addVisual(new Superchocolate(position = position))
     }
     }
 
@@ -75,7 +82,7 @@ object mapa {
   [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
   [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
   [m,f,m,m,m,m,f,m,f,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,f,p,f,f,f,m,f,f,f,f,f,f,f,f,f,m,f,f,f,f,f,f,m],
+  [m,f,h,p,f,f,f,m,f,f,f,f,f,f,f,f,f,m,f,f,f,f,f,f,m],
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m]
 ].reverse()
 
