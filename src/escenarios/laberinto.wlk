@@ -1,9 +1,10 @@
+
 import personajes.pacman.*
 import personajes.fantasmas.*
 import comidas.helados.*
 import escenarios.level1.*
 import wollok.game.*
-
+import managers.fantasmaManager.*
 
 object _ {
     method dibujarEn(position) {
@@ -24,39 +25,33 @@ object m {
 }
 
     //Aca voy a modelar los fantasmas usando un factory para los fantasmas
-    object f {
-        method dibujarEn(position) {
+object f {
+    method dibujarEn(position) {
         game.addVisual(new Bolita(position = position))
     }
-    }
+}
 
-    object h {
-        method dibujarEn(position) {
+object h {
+    method dibujarEn(position) {
         game.addVisual(new Superchocolate(position = position))
     }
-    }
+}
 
     //Aca modelar la comida (bolita)
-    object g {
-        method dibujarEn(position) {
-        game.addVisual(new Fantasma(position = position))
+object g {
+    method dibujarEn(position) {
+        const newFantasma = new Fantasma(position = position)
+        game.addVisual(newFantasma)
+        fantasmaManager.agregarFantasma(newFantasma)
     }
+}
+
+
+object b {
+    method dibujarEn(position) {
+        game.addVisual(new BebidaHelada(position = position))
     }
-
-//    object f {
-//        method dibujarEn(position) {
-//            game.addVisual(fantasma)
-//        }
-//    }
-
-// object n {
-//     method dibujarEn(position) {
-//         nido.position(position)
-//         game.addVisual(nido)
-//     }
-// }
-
-object n {}
+}
 object mapa {
 
     const tablero = 
@@ -77,7 +72,7 @@ object mapa {
   [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
   [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,g,m],
   [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,f,f,f,f,f,f,f,f,f,f,g,f,f,f,f,f,f,f,f,f,f,f,m],
+  [m,f,f,b,f,f,f,f,f,f,f,f,g,f,f,f,f,f,f,f,f,f,f,f,m],
   [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
   [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
   [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],

@@ -7,8 +7,7 @@ import escenarios.pantallaInicial.*
 
 
 program pooc_man{
-    // CONFIGURACION JUEGO
-    //game.boardGround("pacman-30th-anniversary.png")
+    // CONFIGURACION JUEGOn 
     game.cellSize(50)
     game.width(25)
     game.height(25)
@@ -21,7 +20,6 @@ program pooc_man{
     })
     
     
-    //game.addVisual(pacman)
     // TECLADO
 
     game.onCollideDo(pacman, {obj => obj.colisionarConPoocman(pacman)})

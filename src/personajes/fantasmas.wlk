@@ -1,29 +1,26 @@
+import estados.estado.*
 import wollok.game.*
+import Personaje.*
 
-class Fantasma {
-    var property position = game.at(0,0) 
+class Fantasma inherits Personaje{
 
     method image(){
         return "fantasma.png"
     }
 
     method solida() {
-		  return true
+		return false
 	}
 
     method remove() {
-        game.removeVisual(self)
-      
+        game.removeVisual(self)  
     }
 
     method colisionarConPoocman(poocman){
-       if (poocman.estatransformado()){
-        self.remove()
-       }
-       
-       else { poocman.asesinado()
-    }
+        poocman.estado().colisionarConFantasma(self)
+    }  
 
-    
-}  
+    method asustarse(){
+        estado = asustado
+    }
 }

@@ -10,10 +10,6 @@ import comidas.helados.*
 describe "Fantasmas y poocman" {
 
     method initialize(){
-   // game.addVisual(pacman)
-   // game.cellSize(40)
-   // game.width(25)
-   // game.height(15)
 
     game.addVisual(mainScreen)
     pacman.level().iniciarNivel()

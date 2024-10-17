@@ -1,0 +1,28 @@
+import wollok.game.*
+import personajes.pacman.*
+import escenarios.pantallaInicial.*
+import managers.fantasmaManager.*
+import estados.estado.*
+
+
+describe "Fantasmas y poocman" {
+
+    const fantasma = fantasmaManager.fantasmasEn(game.at(12,6)).get(0)
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        pacman.level().iniciarNivel()
+    }
+    test "Matan a poocman en (12,6)"{
+        pacman.position(game.at(11,6))
+        pacman.moverse()
+        fantasma.colisionarConPoocman(pacman)
+        assert.equals(asesinado, pacman.estado())
+    }
+
+    test "Poocman vive en (10,6)"{
+        pacman.position(game.at(10,6))
+        pacman.moverse()
+        assert.equals(normal, pacman.estado())
+    }
+}

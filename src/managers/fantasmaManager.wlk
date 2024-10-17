@@ -3,11 +3,10 @@ import src.comidas.helados.*
 import src.personajes.fantasmas.*
 
 object fantasmaManager {
-    const fantasma1 = new Fantasma()
-    const fantasmasLevel = [fantasma1]
+    const fantasmasLevel = []
 
-    method crearFantasmas(){
-        fantasmasLevel.forEach({fantasma => game.addVisual(fantasma)})
+    method agregarFantasma(fantasma){
+        fantasmasLevel.add(fantasma)
     }
 
     method hayFantasma(_position){

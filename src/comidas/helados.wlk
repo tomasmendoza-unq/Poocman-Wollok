@@ -1,105 +1,63 @@
-import wollok.game.*;
-import src.escenarios.level1.*;
-class HeladoComun {
-    var property position = game.at(10,10);
+import wollok.game.*
+import Helado.*
+class HeladoComun inherits Helado{
 
     method image() {
         return "heladoComun.png"
     } 
 
-    method puntos(){
+    override method puntos(){
         return 1000
     }
 
-    method remove(){
-        game.removeVisual(self)
-    }
-
-    method colisionarConPoocman(poocman){
-        self.remove()
-        poocman.level().puntuacion(self)
-    }
-
-    method solida() {
-		return false
-	}
 }
 
-class BebidaHelada{
-    var property position = game.at(9,10);
+class BebidaHelada inherits Helado{
+
 
     method image() {
         return "bebida.jpg"
     } 
 
-    method puntos(){
+    override method puntos(){
         return 20000
     }
 
-    method remove(){
-        game.removeVisual(self)
-    }
-    method colisionarConPoocman(poocman){
-        self.remove()
-        poocman.level().puntuacion(self)
+
+    override method colisionarConPoocman(poocman){
+        super(poocman)
         poocman.borracho()
     }
 
-    method solida() {
-		return false
-	}
+
 }
-class Superchocolate {
-     var property position = game.at(5,8);
+class Superchocolate inherits Helado{
+
 
     method image() {
         return "heladoComun.png"
     } 
 
-    method puntos(){
+    override method puntos(){
         return 1000
     }
 
-    method remove(){
-        game.removeVisual(self)
+    override method colisionarConPoocman(poocman){
+        super(poocman)
+        poocman.superPacman()
     }
 
-    method colisionarConPoocman(poocman){
-        self.remove()
-        poocman.transformacionssj()
-        level1.puntuacion(self)
-    }
-
-    method solida() {
-		return false
-	}
-
-  
 }
 
+class Bolita inherits Helado{
 
-class Bolita {
-
-const property position 
 
     method image() {
         return "comida.png"
     } 
 
-    method puntos(){
+    override method puntos(){
         return 100
     }
 
-    method remove(){
-        game.removeVisual(self)
-    }
-
-    method colisionarConPoocman(poocman){
-        self.remove()
-        poocman.level().puntuacion(self)
-    }
-
-    method solida() {
-		return false
-	}
 }
