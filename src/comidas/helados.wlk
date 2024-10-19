@@ -1,5 +1,7 @@
 import wollok.game.*
 import Helado.*
+import src.managers.fantasmaManager.*
+
 class HeladoComun inherits Helado{
 
     method image() {
@@ -45,6 +47,7 @@ class Superchocolate inherits Helado{
     override method colisionarConPoocman(poocman){
         super(poocman)
         poocman.superPacman()
+        fantasmaManager.asustarFantasmas()
     }
 
 }

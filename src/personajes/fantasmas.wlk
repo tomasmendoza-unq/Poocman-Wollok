@@ -1,3 +1,4 @@
+import pacman.*
 import estados.estado.*
 import wollok.game.*
 import Personaje.*
@@ -5,7 +6,7 @@ import Personaje.*
 class Fantasma inherits Personaje{
 
     method image(){
-        return "fantasma.png"
+        return "fantasma-"+estado+".png"
     }
 
     method solida() {
@@ -22,5 +23,9 @@ class Fantasma inherits Personaje{
 
     method asustarse(){
         estado = asustado
+    }
+
+    method normalidad() {
+        estado = normal
     }
 }

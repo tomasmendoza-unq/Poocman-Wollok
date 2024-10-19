@@ -64,7 +64,7 @@ object mapa {
   [m,f,m,m,m,m,f,m,f,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
   [m,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,m],
   [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
+  [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,h,m],
   [m,f,m,_,_,m,f,m,_,g,g,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
   [m,f,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,f,m],
   [m,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,m],
