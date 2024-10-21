@@ -1,7 +1,7 @@
 import wollok.game.*
 import src.escenarios.level1.level1
 import src.managers.fantasmaManager.*
-import src.managers.posicionManager.*
+import src.managers.posiciones.*
 
 object pacman {
     var haciaDondeIr = derecha

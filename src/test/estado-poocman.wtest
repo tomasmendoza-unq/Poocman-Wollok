@@ -1,7 +1,7 @@
 import wollok.game.*
 import personajes.pacman.*
 import escenarios.pantallaInicial.*
-import managers.posicionManager.*
+import managers.posiciones.*
 import estados.estado.*
 
 

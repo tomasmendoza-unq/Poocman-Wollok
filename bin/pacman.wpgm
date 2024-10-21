@@ -1,7 +1,7 @@
 import wollok.game.*
 import src.personajes.pacman.*
 import src.comidas.helados.*
-import src.managers.posicionManager.*
+import src.managers.posiciones.*
 import escenarios.laberinto.*
 import escenarios.pantallaInicial.*
 

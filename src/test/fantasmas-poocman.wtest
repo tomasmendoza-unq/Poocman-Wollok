@@ -1,6 +1,9 @@
+import escenarios.levelPrueba.*
+import managers.posiciones.*
 import wollok.game.*
 import personajes.pacman.*
 import escenarios.pantallaInicial.*
+import escenarios.level1.*
 import managers.fantasmaManager.*
 import estados.estado.*
 
@@ -11,7 +14,7 @@ describe "Fantasmas y poocman" {
 
     method initialize(){
         game.addVisual(mainScreen)
-        pacman.level().iniciarNivel()
+        level1.iniciarNivel()
     }
     test "Matan a poocman en (12,6)"{
         pacman.position(game.at(11,6))
@@ -24,5 +27,35 @@ describe "Fantasmas y poocman" {
         pacman.position(game.at(10,6))
         pacman.moverse()
         assert.equals(normal, pacman.estado())
+    }
+}
+
+describe "movimiento fantasma"{
+    const fantasma = fantasmaManager.fantasmasLevel().get(1)
+    const fantasmaBorracho = fantasmaManager.fantasmasLevel().get(0)
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelPrueba.iniciarNivel()
+    }
+    test "Fantasma intenta mover arriba"{
+        fantasma.cambioDireccion(arriba)
+        assert.notThat(fantasma.sePuedeMover())    
+    }
+
+    test "Fantasma intenta moverse a otra direccion"{
+        const direccionAntigua = fantasma.position()
+        fantasma.cambioDireccion(arriba)
+        fantasma.moverse()
+        assert.notEquals(direccionAntigua, fantasma.position())
+        assert.notEquals(arriba, fantasma.haciaDondeIr())
+    }
+
+    test "Fantasma borracho intenta moverse"{
+        const direccionAntigua = fantasmaBorracho.position()
+        fantasmaBorracho.cambioDireccion(arriba)
+        fantasmaBorracho.moverse()
+        assert.notEquals(direccionAntigua, fantasmaBorracho.position())
+        assert.notEquals(arriba, fantasma.haciaDondeIr())
     }
 }

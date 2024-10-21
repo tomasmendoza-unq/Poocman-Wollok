@@ -1,10 +1,12 @@
-import src.escenarios.level1.level1
+
 import src.managers.fantasmaManager.*
-import src.managers.posicionManager.*
+import src.managers.posiciones.*
 import estados.estado.*
+import escenarios.level1.*
+import escenarios.levelPrueba.*
 
 class Personaje{
-    var haciaDondeIr = derecha
+    var property   haciaDondeIr = derecha
     var property  level = level1
     var property estado = normal
     var property position = game.at(10,7)
@@ -15,21 +17,31 @@ class Personaje{
     }
 
     method moverse() {
-        const next = game.at(haciaDondeIr.x(self.position()), haciaDondeIr.y(self.position()))
+        self.validarAtravesable()
+        position = self.siguientePosicion()
+    }
 
-        self.validarAtravesables(next)
-        position = next
+    method siguientePosicion(){
+        return game.at(haciaDondeIr.x(self.position()), haciaDondeIr.y(self.position()))
     }
 
     method haySolido(_position) {
 		return game.getObjectsIn(_position).any({cosa => cosa.solida()})
 	}
 
-    method validarAtravesables(_position) {
-		if (self.haySolido(_position)) {
+    method validarAtravesable() {
+		if (not self.sePuedeMover()) {
 			self.error("No puedo ir ahí")
 		}
 	}
+
+    method sePuedeMover(){
+        return not self.haySolido(self.siguientePosicion())
+    }
+
+    method normal() {  
+        estado = normal 
+    }
 
 
 }

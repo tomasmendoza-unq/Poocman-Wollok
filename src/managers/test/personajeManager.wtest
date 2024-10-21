@@ -1,0 +1,31 @@
+
+import managers.personajeManager.*
+import wollok.game.*
+import personajes.pacman.*
+import escenarios.pantallaInicial.*
+import escenarios.levelPrueba.*
+import estados.estado.*
+import managers.posiciones.*
+import managers.fantasmaManager.*
+
+describe "personajeManager" {
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelPrueba.iniciarNivel()
+    }
+
+    test "Pacman es el unico que se puede mover arriba" {
+        personajeManager.cambioDireccion(arriba)
+        assert.equals([pacman], personajeManager.sePuedenMover())
+    }
+
+    test "Mover a todos"{
+        const direccionesViejas = fantasmaManager.direccionesFantasma()
+        personajeManager.mover()
+        assert.notThat(direccionesViejas.any({direccion => fantasmaManager.direccionesFantasma().contains(direccion)}))
+    }
+
+    
+
+}

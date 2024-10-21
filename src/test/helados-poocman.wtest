@@ -2,7 +2,7 @@ import wollok.game.*
 import src.personajes.fantasmas.*
 import src.personajes.pacman.*
 import escenarios.pantallaInicial.*
-import managers.posicionManager.*
+import managers.posiciones.*
 import comidas.helados.*
 
 

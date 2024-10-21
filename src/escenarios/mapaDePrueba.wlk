@@ -69,27 +69,8 @@ object mapa {
     const tablero = 
 [
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m],
-  [m,f,_,f,f,f,f,m,f,f,f,f,f,f,f,f,f,m,f,f,f,f,f,f,m],
-  [m,f,m,m,m,m,f,m,f,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
-  [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
-  [m,f,m,m,m,m,f,m,f,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,f,f,f,f,f,f,f,f,f,f,f,fb,f,f,f,f,f,f,f,f,f,f,m],
-  [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,h,m],
-  [m,f,m,_,_,m,f,m,_,g,g,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
-  [m,f,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,f,m],
-  [m,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,f,m],
-  [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
-  [m,f,m,_,_,m,f,m,_,_,_,_,m,f,m,_,_,m,f,m,_,_,m,g,m],
-  [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,b,f,b,f,f,f,f,f,f,f,f,g,f,f,f,f,f,f,f,f,f,f,f,m],
-  [m,f,m,m,m,m,f,m,m,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
-  [m,f,m,_,_,m,f,m,f,m,_,_,m,f,m,_,_,m,f,m,_,_,m,f,m],
-  [m,f,m,m,m,m,f,m,f,m,m,m,m,f,m,m,m,m,f,m,m,m,m,f,m],
-  [m,f,h,p,f,f,f,m,f,f,f,f,f,f,f,f,f,m,f,f,f,f,f,f,m],
+  [m,f,_,f,f,f,_,_,f,f,f,f,g,f,f,f,f,_,f,f,f,f,f,f,m],
+  [m,f,_,_,_,_,fb,_,f,_,_,_,_,p,_,_,_,_,f,_,_,_,_,f,m],
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m]
 ].reverse()
 
@@ -114,3 +95,5 @@ object mapa {
 
 
 }
+
+
