@@ -1,9 +1,8 @@
+
 import wollok.game.*
-import src.comidas.helados.*
-import src.personajes.fantasmas.*
 
 object fantasmaManager {
-    const fantasmasLevel = []
+    const property fantasmasLevel = []
 
     method agregarFantasma(fantasma){
         fantasmasLevel.add(fantasma)
@@ -15,5 +14,9 @@ object fantasmaManager {
 
     method fantasmasEn(_position){
         return game.getObjectsIn(_position).filter({obj => fantasmasLevel.contains(obj)})
+    }
+
+    method direccionesFantasma(){
+        return fantasmasLevel.map({fantasma => fantasma.position()})
     }
 }

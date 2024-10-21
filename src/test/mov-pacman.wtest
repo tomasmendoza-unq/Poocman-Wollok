@@ -1,15 +1,15 @@
 import src.personajes.pacman.*
 import game.*
-import managers.posicionManager.*
+import managers.posiciones.*
 import escenarios.pantallaInicial.*
+import escenarios.level1.*
 
 
 describe "Movimiento pacman" {
 
     method initialize(){
-
-    game.addVisual(mainScreen)
-    pacman.level().iniciarNivel()
+      game.addVisual(mainScreen)
+      level1.iniciarNivel()
     }
 
     
@@ -23,11 +23,11 @@ describe "Movimiento pacman" {
     pacman.moverse()
     assert.equals(2, pacman.position().x())  // Cambiado a 9, porque parte de la posición x = 10
   }
-  test "movimiento pacman hacia la arriba" {
+  test "movimiento pacman intenta ir arriba" {
     pacman.cambioDireccion(arriba)
     assert.throwsException({pacman.moverse()})  // Cambiado a 8, porque parte de la posición y = 7
   }
-  test "movimiento pacman hacia la abajo" {
+  test "movimiento pacman intenta ir abajo" {
     pacman.cambioDireccion(abajo)
     assert.throwsException({pacman.moverse()})  // Cambiado a 8, porque parte de la posición y = 7
   }

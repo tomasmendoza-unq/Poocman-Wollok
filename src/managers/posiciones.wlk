@@ -1,8 +1,21 @@
+object posicion{
+    const direcciones = [arriba,abajo,izquierda,derecha]
+
+    method direccionRandom(){
+
+        return direcciones.get(self.indiceRandom())
+    }
+
+    method indiceRandom(){
+        return 0.randomUpTo(direcciones.size()-1)
+    }
+}
+
 
 object arriba {
-  method x(posicion) {
-    return posicion.x()
-  }
+    method x(posicion) {
+        return posicion.x()
+    }
 
     method y(posicion) {
         return (game.height()-1).min((posicion.y())+1)

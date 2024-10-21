@@ -29,13 +29,14 @@ object pacman inherits Personaje{
       game.schedule(10000, {self.normal()})
     }
 
-    method normal() {  
-      estado = normal 
-    }
-
     method borracho(){
       estado = borracho
     }
+
+
+
+
+    
 
   
 }

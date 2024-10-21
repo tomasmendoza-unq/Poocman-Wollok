@@ -2,11 +2,11 @@ import wollok.game.*
 import src.comidas.helados.*
 import src.personajes.fantasmas.*
 import src.managers.fantasmaManager.*
-import src.escenarios.laberinto.*
+import src.escenarios.mapaDePrueba.*
 import src.escenarios.pantallaInicial.*
 import managers.personajeManager.*
 
-object level1 {
+object levelPrueba {
     var puntuacion = 0
 
 
