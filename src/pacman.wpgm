@@ -9,7 +9,7 @@ import escenarios.pantallaInicial.*
 
 program pooc_man{
     // CONFIGURACION JUEGO    game.cellSize(50)
-    game.width(25)
+    game.width(25) 
     game.height(25)
     
     game.addVisual(mainScreen)

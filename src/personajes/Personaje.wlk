@@ -17,8 +17,10 @@ class Personaje{
     }
 
     method moverse() {
-        self.validarAtravesable()
-        position = self.siguientePosicion()
+        // self.validarAtravesable()
+        if (self.sePuedeMover()){
+         position = self.siguientePosicion()            
+        }
     }
 
     method siguientePosicion(){
@@ -29,11 +31,11 @@ class Personaje{
 		return game.getObjectsIn(_position).any({cosa => cosa.solida()})
 	}
 
-    method validarAtravesable() {
-		if (not self.sePuedeMover()) {
-			self.error("No puedo ir ahí")
-		}
-	}
+    // method validarAtravesable() {
+	// 	if (not self.sePuedeMover()) {
+	// 		self.error("No puedo ir ahí")
+	// 	}
+	// }
 
     method sePuedeMover(){
         return not self.haySolido(self.siguientePosicion())

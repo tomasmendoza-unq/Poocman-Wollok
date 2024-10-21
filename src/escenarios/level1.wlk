@@ -15,7 +15,7 @@ object level1 {
         game.removeVisual(mainScreen)
         mapa.dibujar()
         
-    game.onTick(200, "movimiento", {personajeManager.mover()})
+    game.onTick(10, "movimiento", {personajeManager.mover()})
     }
 
     method validarPantallaDeInicio() {
