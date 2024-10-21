@@ -24,7 +24,7 @@ test "cambia a ssj" {
     pacman.cambioDireccion(izquierda)
     pacman.moverse()
     helado.get(0).colisionarConPoocman(pacman)
-    assert.equals( ssj ,pacman.estado())
+    assert.equals(ssj, pacman.estado())
     
   
 }

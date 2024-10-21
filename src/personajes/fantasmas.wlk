@@ -22,10 +22,10 @@ class Fantasma inherits Personaje{
     }  
 
     method asustarse(){
-        estado = asustado
+        self.estado(asustado)
     }
 
     method normalidad() {
-        estado = normal
+        self.estado(normal)
     }
 }
