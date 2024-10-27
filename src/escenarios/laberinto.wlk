@@ -5,7 +5,6 @@ import comidas.helados.*
 import escenarios.level1.*
 import wollok.game.*
 import managers.fantasmaManager.*
-import managers.personajeManager.*
 
 object _ {
     method dibujarEn(position) {
@@ -16,7 +15,7 @@ object _ {
 object p {
     method dibujarEn(position) {
         pacman.position(position)
-        personajeManager.agregarPersonaje(pacman)
+
     }
 }
 
@@ -43,7 +42,7 @@ object g {
     method dibujarEn(position) {
         const newFantasma = new Fantasma(position = position)
         game.addVisual(newFantasma)
-        personajeManager.agregarPersonaje(newFantasma)
+
         fantasmaManager.agregarFantasma(newFantasma)
     }
 }
@@ -54,7 +53,6 @@ object fb {
     method dibujarEn(position) {
         const newFantasma = new FantasmaBorracho(position = position)
         game.addVisual(newFantasma)
-        personajeManager.agregarPersonaje(newFantasma)
         fantasmaManager.agregarFantasma(newFantasma)
     }
 }

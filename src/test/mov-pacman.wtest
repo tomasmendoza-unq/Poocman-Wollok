@@ -1,3 +1,4 @@
+
 import src.personajes.pacman.*
 import game.*
 import managers.posiciones.*
@@ -25,11 +26,11 @@ describe "Movimiento pacman" {
   }
   test "movimiento pacman intenta ir arriba" {
     pacman.cambioDireccion(arriba)
-    assert.throwsException({pacman.moverse()})  // Cambiado a 8, porque parte de la posición y = 7
+    assert.equals(game.at(3,1), pacman.position())  // Cambiado a 8, porque parte de la posición y = 7
   }
   test "movimiento pacman intenta ir abajo" {
     pacman.cambioDireccion(abajo)
-    assert.throwsException({pacman.moverse()})  // Cambiado a 8, porque parte de la posición y = 7
+    assert.equals(game.at(3,1), pacman.position())  // Cambiado a 8, porque parte de la posición y = 7
   }
 
   test "movimiento pacman hacia abajo a la derecha" {

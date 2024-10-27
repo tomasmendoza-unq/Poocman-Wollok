@@ -4,7 +4,7 @@ import src.personajes.fantasmas.*
 import src.managers.fantasmaManager.*
 import src.escenarios.mapaDePrueba.*
 import src.escenarios.pantallaInicial.*
-import managers.personajeManager.*
+import personajes.pacman.*
 
 object levelPrueba {
     var puntuacion = 0
@@ -14,8 +14,10 @@ object levelPrueba {
         self.validarPantallaDeInicio()
         game.removeVisual(mainScreen)
         mapa.dibujar()
-        
-    game.onTick(200, "movimiento", {personajeManager.mover()})
+        // game.onTick(20, "movimiento", {pacman.moverse()})
+
+        game.onTick(1000, "movimiento fantasmas", {fantasmaManager.mover()})
+
     }
 
     method validarPantallaDeInicio() {

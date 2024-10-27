@@ -10,14 +10,6 @@ class Fantasma inherits Personaje{
         return "fantasma-"+estado+".png"
     }
 
-    method solida() {
-		return false
-	}
-
-    method remove() {
-        game.removeVisual(self)  
-    }
-
     method colisionarConPoocman(poocman){
         poocman.estado().colisionarConFantasma(self)
     }  
@@ -26,41 +18,35 @@ class Fantasma inherits Personaje{
         self.estado(asustado)
     }
 
-    method normalidad() {
-        self.estado(normal)
-        estado = asustado
-        game.schedule(10000, {self.normal()})
-    }
-
     override method moverse(){
-        self.validarSiPuedeMoverse()
         super()
+        self.actualizarDireccion()
     }
+    
+    // method text(){
+    //     return "" +  self.direccion()
+    // }
 
-
-    method validarSiPuedeMoverse(){
+    method actualizarDireccion(){
         if(not self.sePuedeMover()){
-            haciaDondeIr = posicion.direccionRandom()
+            direccion = direcciones.direccionRandom(self)
         }
     }
 
+    method normalidad (){
+        self.normal()
+    }
 
 }
 
 class FantasmaBorracho inherits Fantasma(estado = borracho){
 
-    // TODO: PONER UNA IMAGEN DE UN FANTASMA BORRACHO
     override method image(){
         return "pepita.png"
     }
 
-    override method asustarse(){
-        estado = asustado
-        game.schedule(10000, {self.borracho()})
-    }
-
     
-    method borracho(){
+    override method normalidad (){
         estado = borracho
     }
 }

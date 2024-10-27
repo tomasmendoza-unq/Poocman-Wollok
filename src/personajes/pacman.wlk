@@ -5,14 +5,8 @@ import Personaje.*
 object pacman inherits Personaje{
 
     method image() {
-        return "pacMan-"+estado+"-"+haciaDondeIr+".png"
+        return "pacMan-"+estado+"-"+direccion+".png"
     }
-
-
-    method solida() {		  
-      return false
-    }
-
 
     method puntuacion(){
       game.say(self, "Puntuacion: " + level.puntuacion())
@@ -26,17 +20,10 @@ object pacman inherits Personaje{
 
     method superPacman() {
       estado = superPacman
-      game.schedule(10000, {self.normal()})
+      game.schedule(5000, {self.normal()})
     }
 
     method borracho(){
       estado = borracho
-    }
-
-
-
-
-    
-
-  
+    }  
 }

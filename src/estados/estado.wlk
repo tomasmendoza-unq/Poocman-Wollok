@@ -1,7 +1,7 @@
 import wollok.game.*
 import personajes.pacman.*
 class Estado {
-    method haciaDondeIr(direccion){
+    method direccion(direccion){
         return direccion
     }
 
@@ -18,7 +18,7 @@ object  superPacman  inherits Estado{
 }
 
 object borracho inherits Estado{
-    override method haciaDondeIr(direccion){
+    override method direccion(direccion){
         return super(direccion).opuesto()
     }
 }

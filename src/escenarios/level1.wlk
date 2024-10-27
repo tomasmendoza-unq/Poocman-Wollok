@@ -1,10 +1,10 @@
+import personajes.pacman.*
 import wollok.game.*
 import src.comidas.helados.*
 import src.personajes.fantasmas.*
 import src.managers.fantasmaManager.*
 import src.escenarios.laberinto.*
 import src.escenarios.pantallaInicial.*
-import managers.personajeManager.*
 
 object level1 {
     var puntuacion = 0
@@ -14,8 +14,8 @@ object level1 {
         self.validarPantallaDeInicio()
         game.removeVisual(mainScreen)
         mapa.dibujar()
-        
-    game.onTick(10, "movimiento", {personajeManager.mover()})
+        game.onTick(20, "movimiento", {pacman.moverse()})
+        game.onTick(10, "movimiento fantasmas", {fantasmaManager.mover()})
     }
 
     method validarPantallaDeInicio() {

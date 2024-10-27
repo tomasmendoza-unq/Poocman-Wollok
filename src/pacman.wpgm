@@ -2,7 +2,6 @@ import wollok.game.*
 import src.personajes.pacman.*
 import src.comidas.helados.*
 import src.managers.posiciones.*
-import managers.personajeManager.*
 import escenarios.laberinto.*
 import escenarios.pantallaInicial.*
 
@@ -23,10 +22,10 @@ program pooc_man{
     // TECLADO
 
     game.onCollideDo(pacman, {obj => obj.colisionarConPoocman(pacman)})
-    keyboard.left().onPressDo({personajeManager.cambioDireccion(izquierda)})
-    keyboard.right().onPressDo({personajeManager.cambioDireccion(derecha)})
-    keyboard.up().onPressDo({personajeManager.cambioDireccion(arriba)})
-    keyboard.down().onPressDo({personajeManager.cambioDireccion(abajo)})
+    keyboard.left().onPressDo({pacman.cambioDireccion(izquierda)})
+    keyboard.right().onPressDo({pacman.cambioDireccion(derecha)})
+    keyboard.up().onPressDo({pacman.cambioDireccion(arriba)})
+    keyboard.down().onPressDo({pacman.cambioDireccion(abajo)})
     keyboard.p().onPressDo({pacman.puntuacion()})
 
     // EVENTOS

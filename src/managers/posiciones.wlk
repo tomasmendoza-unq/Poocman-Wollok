@@ -1,70 +1,87 @@
-object posicion{
-    const direcciones = [arriba,abajo,izquierda,derecha]
+object direcciones{
+    const property direcciones = [arriba,abajo,izquierda,derecha]
 
-    method direccionRandom(){
 
-        return direcciones.get(self.indiceRandom())
+    method direccionRandom(pesonaje){
+        return self.direccionesValidas(pesonaje).anyOne()
     }
 
-    method indiceRandom(){
-        return 0.randomUpTo(direcciones.size()-1)
+
+    method direccionesValidas(personaje){
+        return direcciones.filter({direccion => personaje.sePuedeMoverHacia(direccion)})
     }
+
+}
+
+class Direccion {
+    method x(position) 
+
+    method y(position) 
+
+    method opuesto()
+
+    method siguiente(position){
+        return game.at(self.x(position), self.y(position))
+    }
+    
 }
 
 
-object arriba {
-    method x(posicion) {
-        return posicion.x()
+object arriba inherits Direccion{
+    override method x(position) {
+        return position.x()
     }
 
-    method y(posicion) {
-        return (game.height()-1).min((posicion.y())+1)
+    override method y(position) {
+        return (game.height()-1).min((position.y())+1)
     }
 
-    method opuesto(){
+
+    override method opuesto(){
         return abajo
     }
+
 } 
 
-object izquierda {
-    method x (posicion){
-        return 0.max(posicion.x() - 1)
+object izquierda inherits Direccion{
+    override method x(position){
+        return 0.max(position.x() - 1)
     }
 
-    method y(posicion) {
-        return posicion.y()
+    override method y(position) {
+        return position.y()
     }
     
-    method opuesto(){
+    override method opuesto(){
         return derecha
     }
 } 
-object derecha {
-    method x (posicion){
-        return (game.width()-1).min(posicion.x() + 1)
+object derecha inherits Direccion{
+    override method x (position){
+        return (game.width()-1).min(position.x() + 1)
     }
 
-    method y(posicion) {
-        return posicion.y()
+    override method y(position) {
+        return position.y()
     }
 
-    method opuesto(){
+    override method opuesto(){
         return izquierda
     }
     
 } 
 
-object abajo {
+object abajo inherits Direccion{
     
-    method x (posicion){
-        return posicion.x()
+    override method x (position){
+        return position.x()
     }
 
-    method y(posicion) {
-        return 0.max(posicion.y()-1)
+    override method y(position) {
+        return 0.max(position.y()-1)
     }
 
-    method opuesto(){
+    override method opuesto(){
         return arriba
     }
 } 

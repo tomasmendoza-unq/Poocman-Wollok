@@ -6,39 +6,39 @@ import escenarios.level1.*
 import escenarios.levelPrueba.*
 
 class Personaje{
-    var property   haciaDondeIr = derecha
+    var property direccion = derecha
     var property  level = level1
     var property estado = normal
     var property position = game.at(10,7)
 
     
-    method cambioDireccion(direccion) {
-        haciaDondeIr = estado.haciaDondeIr(direccion)
+    method cambioDireccion(_direccion) {
+        direccion = estado.direccion(_direccion)
+    }
+
+    method solida() {
+		return false
+	}
+
+    method remove() {
+        game.removeVisual(self)  
     }
 
     method moverse() {
-        // self.validarAtravesable()
-        if (self.sePuedeMover()){
-         position = self.siguientePosicion()            
+        if (self.sePuedeMoverHacia(direccion)){
+            position = direccion.siguiente(position)           
         }
-    }
-
-    method siguientePosicion(){
-        return game.at(haciaDondeIr.x(self.position()), haciaDondeIr.y(self.position()))
     }
 
     method haySolido(_position) {
 		return game.getObjectsIn(_position).any({cosa => cosa.solida()})
 	}
 
-    // method validarAtravesable() {
-	// 	if (not self.sePuedeMover()) {
-	// 		self.error("No puedo ir ahí")
-	// 	}
-	// }
-
-    method sePuedeMover(){
-        return not self.haySolido(self.siguientePosicion())
+    method sePuedeMoverHacia(_direccion) {
+        return not self.haySolido(_direccion.siguiente(position))
+    }
+    method sePuedeMover() {
+        return not self.haySolido(direccion.siguiente(position))
     }
 
     method normal() {  

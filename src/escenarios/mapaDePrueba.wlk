@@ -5,7 +5,6 @@ import comidas.helados.*
 import escenarios.level1.*
 import wollok.game.*
 import managers.fantasmaManager.*
-import managers.personajeManager.*
 
 object _ {
     method dibujarEn(position) {
@@ -16,7 +15,7 @@ object _ {
 object p {
     method dibujarEn(position) {
         pacman.position(position)
-        personajeManager.agregarPersonaje(pacman)
+
     }
 }
 
@@ -43,7 +42,7 @@ object g {
     method dibujarEn(position) {
         const newFantasma = new Fantasma(position = position)
         game.addVisual(newFantasma)
-        personajeManager.agregarPersonaje(newFantasma)
+
         fantasmaManager.agregarFantasma(newFantasma)
     }
 }
@@ -54,7 +53,7 @@ object fb {
     method dibujarEn(position) {
         const newFantasma = new FantasmaBorracho(position = position)
         game.addVisual(newFantasma)
-        personajeManager.agregarPersonaje(newFantasma)
+
         fantasmaManager.agregarFantasma(newFantasma)
     }
 }
@@ -69,8 +68,8 @@ object mapa {
     const tablero = 
 [
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m],
-  [m,f,_,f,f,f,_,_,f,f,f,f,g,f,f,f,f,_,f,f,f,f,f,f,m],
-  [m,f,_,_,_,_,fb,_,f,_,_,_,_,p,_,_,_,_,f,_,_,_,_,f,m],
+  [m,g,_,f,f,f,_,_,f,f,f,f,f,f,f,f,f,_,f,f,f,f,f,g,m],
+  [m,m,_,_,_,_,fb,_,f,_,_,_,_,_,_,_,_,_,f,_,_,_,_,f,m],
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m]
 ].reverse()
 

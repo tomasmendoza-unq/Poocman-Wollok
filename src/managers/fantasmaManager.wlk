@@ -8,12 +8,21 @@ object fantasmaManager {
         fantasmasLevel.add(fantasma)
     }
 
-
     method asustarFantasmas() {
-      if (not fantasmasLevel.isEmpty()){
         fantasmasLevel.forEach({fantasma => fantasma.asustarse()})
-        game.schedule(8000, {self.desasustarFantasmas()})
-      }
+        game.schedule(5000, {self.desasustarFantasmas()})
+    }
+    
+    method mover(){
+        self.sePuedenMover().forEach({personaje => personaje.moverse()})
+    }
+
+    method sePuedenMover(){
+        return fantasmasLevel.filter({fantasma => fantasma.sePuedeMover()})
+    }
+
+    method cambioDireccion(direccion) {
+        fantasmasLevel.forEach({fantasma => fantasma.cambioDireccion(direccion)})
     }
 
     method desasustarFantasmas() {

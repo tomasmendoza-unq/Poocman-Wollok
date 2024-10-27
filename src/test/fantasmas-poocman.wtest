@@ -48,7 +48,7 @@ describe "movimiento fantasma"{
         fantasma.cambioDireccion(arriba)
         fantasma.moverse()
         assert.notEquals(direccionAntigua, fantasma.position())
-        assert.notEquals(arriba, fantasma.haciaDondeIr())
+        assert.notEquals(arriba, fantasma.direccion())
     }
 
     test "Fantasma borracho intenta moverse"{
@@ -56,6 +56,6 @@ describe "movimiento fantasma"{
         fantasmaBorracho.cambioDireccion(arriba)
         fantasmaBorracho.moverse()
         assert.notEquals(direccionAntigua, fantasmaBorracho.position())
-        assert.notEquals(arriba, fantasma.haciaDondeIr())
+        assert.notEquals(arriba, fantasma.direccion())
     }
 }
