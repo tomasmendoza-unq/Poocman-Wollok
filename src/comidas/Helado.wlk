@@ -1,3 +1,7 @@
+
+import managers.comidaManager.*
+import managers.levelManager.*
+
 class Helado {
     const property position  
 
@@ -9,11 +13,17 @@ class Helado {
     }
 
     method colisionarConPoocman(poocman){
-        self.remove()
-        poocman.level().puntuacion(self)
+        if(comidaManager.noHayMasHelado()){
+            return levelManager.noHayMasHeladoComun()
+
+        } else {
+            self.remove()
+            poocman.level().puntuacion(self)
+        }
     }
 
     method solida() {
 		return false
 	}
 }
+

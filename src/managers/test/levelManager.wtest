@@ -1,0 +1,17 @@
+import managers.posiciones.*
+import managers.levelManager.*
+import escenarios.pantallaInicial.*
+import personajes.pacman.*
+import escenarios.level1.*
+
+describe "LEVEL MANAGER"{
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        level1.iniciarNivel()
+    }
+    test "No hay mas helados en el level 1"{
+        level1.removerHeladoComunDelNivel()
+        assert.that(levelManager.noHayMasHeladoComun())
+    }
+}

@@ -21,12 +21,8 @@ object fantasmaManager {
         return fantasmasLevel.filter({fantasma => fantasma.sePuedeMover()})
     }
 
-    method cambioDireccion(direccion) {
-        fantasmasLevel.forEach({fantasma => fantasma.cambioDireccion(direccion)})
-    }
-
     method desasustarFantasmas() {
-      fantasmasLevel.forEach({fantasma => fantasma.normalidad()})
+        fantasmasLevel.forEach({fantasma => fantasma.normalidad()})
     }
 
 

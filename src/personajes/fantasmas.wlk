@@ -39,6 +39,8 @@ class Fantasma inherits Personaje{
 
 }
 
+//agregar fantasma que avance dos pixeles
+
 class FantasmaBorracho inherits Fantasma(estado = borracho){
 
     override method image(){

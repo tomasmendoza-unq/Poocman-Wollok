@@ -14,7 +14,7 @@ describe "Posiciones test" {
 
 
   test "fantasma se puede mover a la abajo o izquierda" {
-      assert.equals([abajo,izquierda],direcciones.direccionesValidas(fantasma))
+      assert.equals([izquierda],direcciones.direccionesValidas(fantasma))
   }
 
 

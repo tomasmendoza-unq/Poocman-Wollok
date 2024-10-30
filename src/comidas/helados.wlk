@@ -51,16 +51,3 @@ class Superchocolate inherits Helado{
     }
 
 }
-
-class Bolita inherits Helado{
-
-
-    method image() {
-        return "comida.png"
-    } 
-
-    override method puntos(){
-        return 100
-    }
-
-}

@@ -35,6 +35,9 @@ object level1 {
         puntuacion += helado.puntos()
     }
 
+    method removerHeladoComunDelNivel(){
+        mapa.removerHeladoComun()
+    }
 
 }
 

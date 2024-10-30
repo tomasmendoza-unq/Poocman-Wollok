@@ -1,5 +1,6 @@
 
 import src.managers.fantasmaManager.*
+import src.managers.levelManager.*
 import src.managers.posiciones.*
 import estados.estado.*
 import escenarios.level1.*
@@ -30,15 +31,12 @@ class Personaje{
         }
     }
 
-    method haySolido(_position) {
-		return game.getObjectsIn(_position).any({cosa => cosa.solida()})
-	}
-
     method sePuedeMoverHacia(_direccion) {
-        return not self.haySolido(_direccion.siguiente(position))
+        return not levelManager.haySolido(_direccion.siguiente(position))
     }
+    
     method sePuedeMover() {
-        return not self.haySolido(direccion.siguiente(position))
+        return self.sePuedeMoverHacia(direccion)
     }
 
     method normal() {  

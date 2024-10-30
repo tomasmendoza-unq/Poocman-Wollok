@@ -26,11 +26,7 @@ object m {
 }
 
     //Aca voy a modelar los fantasmas usando un factory para los fantasmas
-object f {
-    method dibujarEn(position) {
-        game.addVisual(new Bolita(position = position))
-    }
-}
+
 
 object h {
     method dibujarEn(position) {
@@ -68,8 +64,8 @@ object mapa {
     const tablero = 
 [
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m],
-  [m,g,_,f,f,f,_,_,f,f,f,f,f,f,f,f,f,_,f,f,f,f,f,g,m],
-  [m,m,_,_,_,_,fb,_,f,_,_,_,_,_,_,_,_,_,f,_,_,_,_,f,m],
+  [m,g,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,fb,m],
+  [m,m,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,m,m],
   [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m]
 ].reverse()
 

@@ -31,8 +31,8 @@ describe "Fantasmas y poocman" {
 }
 
 describe "movimiento fantasma"{
-    const fantasma = fantasmaManager.fantasmasLevel().get(1)
-    const fantasmaBorracho = fantasmaManager.fantasmasLevel().get(0)
+    const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
+    const fantasmaB = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
 
     method initialize(){
         game.addVisual(mainScreen)
@@ -44,18 +44,18 @@ describe "movimiento fantasma"{
     }
 
     test "Fantasma intenta moverse a otra direccion"{
-        const direccionAntigua = fantasma.position()
         fantasma.cambioDireccion(arriba)
-        fantasma.moverse()
-        assert.notEquals(direccionAntigua, fantasma.position())
-        assert.notEquals(arriba, fantasma.direccion())
+        fantasma.moverse() // para que actualice la direccion
+        fantasma.moverse() // luego se mueve
+        assert.equals(derecha, fantasma.direccion())
+        assert.equals(game.at(2,2),fantasma.position())
     }
 
     test "Fantasma borracho intenta moverse"{
-        const direccionAntigua = fantasmaBorracho.position()
-        fantasmaBorracho.cambioDireccion(arriba)
-        fantasmaBorracho.moverse()
-        assert.notEquals(direccionAntigua, fantasmaBorracho.position())
-        assert.notEquals(arriba, fantasma.direccion())
+        fantasmaB.cambioDireccion(arriba)
+        fantasmaB.moverse() // para que actualice la direccion
+        fantasmaB.moverse() // luego se mueve
+        assert.equals(izquierda,fantasmaB.direccion() )
+        assert.equals(game.at(22,2), fantasmaB.position())
     }
 }
