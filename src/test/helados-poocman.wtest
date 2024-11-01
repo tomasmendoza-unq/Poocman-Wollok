@@ -1,27 +1,29 @@
+import managers.levelManager.*
 import wollok.game.*
 import src.personajes.fantasmas.*
 import src.personajes.pacman.*
 import escenarios.pantallaInicial.*
 import managers.posiciones.*
 import comidas.helados.*
+import escenarios.levels.level1.*
 
 
 
-describe "Fantasmas y poocman" {
+describe "Pacman y los helados" {
 
     method initialize(){
-
-    game.addVisual(mainScreen)
-    pacman.level().iniciarNivel()
+        game.addVisual(mainScreen)
+        level1.iniciarNivel()
     }
 
-    test "poocman come una helado comun en (4,1) y tiene 1000 puntos" {
+    test "pacman come una helado comun en (4,1) y tiene 1000 puntos" {
         const heladoComun = game.getObjectsIn(game.at(4,1))
-        assert.equals(0, pacman.level().puntuacion())
+        assert.equals(0, levelManager.puntuacionLevel())
         pacman.cambioDireccion(derecha)
         pacman.moverse()
-        heladoComun.get(0).colisionarConPoocman(pacman)
-        assert.equals(1000, pacman.level().puntuacion())
+        heladoComun.get(0).colisionarConpacman(pacman)
+        assert.equals(1000, levelManager.puntuacionLevel())
     }  
+    
     
 }

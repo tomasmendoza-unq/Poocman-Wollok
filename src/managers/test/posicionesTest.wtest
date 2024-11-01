@@ -2,7 +2,7 @@ import managers.posiciones.*
 import managers.fantasmaManager.*
 import escenarios.pantallaInicial.*
 import personajes.pacman.*
-import escenarios.levelPrueba.*
+import escenarios.levels.levelPrueba.*
 
 describe "Posiciones test" {
 

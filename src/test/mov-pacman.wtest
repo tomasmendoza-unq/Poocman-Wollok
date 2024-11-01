@@ -3,7 +3,7 @@ import src.personajes.pacman.*
 import game.*
 import managers.posiciones.*
 import escenarios.pantallaInicial.*
-import escenarios.level1.*
+import escenarios.levels.level1.*
 
 
 describe "Movimiento pacman" {

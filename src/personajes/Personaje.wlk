@@ -3,12 +3,10 @@ import src.managers.fantasmaManager.*
 import src.managers.levelManager.*
 import src.managers.posiciones.*
 import estados.estado.*
-import escenarios.level1.*
-import escenarios.levelPrueba.*
+import escenarios.levels.level1.*
 
 class Personaje{
-    var property direccion = derecha
-    var property  level = level1
+    var property direccion = arriba
     var property estado = normal
     var property position = game.at(10,7)
 

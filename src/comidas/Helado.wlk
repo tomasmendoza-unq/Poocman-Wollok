@@ -1,5 +1,4 @@
 
-import managers.comidaManager.*
 import managers.levelManager.*
 
 class Helado {
@@ -12,14 +11,9 @@ class Helado {
         game.removeVisual(self)
     }
 
-    method colisionarConPoocman(poocman){
-        if(comidaManager.noHayMasHelado()){
-            return levelManager.noHayMasHeladoComun()
-
-        } else {
-            self.remove()
-            poocman.level().puntuacion(self)
-        }
+    method colisionarConpacman(pacman){
+        self.remove()
+        levelManager.comioHelado(self)
     }
 
     method solida() {

@@ -1,0 +1,19 @@
+import managers.levelManager.*
+import managers.heladoManager.*
+import escenarios.pantallaInicial.*
+import personajes.pacman.*
+import escenarios.levels.levelPrueba.*
+import escenarios.levels.level1.*
+describe "Manager Helado"{
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelManager.iniciarNivel()
+    }
+
+    test "hay Helados"{
+        assert.that(heladoManager.hayHelado())
+
+    }
+}

@@ -1,14 +1,14 @@
-import escenarios.levelPrueba.*
+import escenarios.levels.levelPrueba.*
 import managers.posiciones.*
 import wollok.game.*
 import personajes.pacman.*
 import escenarios.pantallaInicial.*
-import escenarios.level1.*
+import escenarios.levels.level1.*
 import managers.fantasmaManager.*
 import estados.estado.*
 
 
-describe "Fantasmas y poocman" {
+describe "Fantasmas y pacman" {
 
     const fantasma = fantasmaManager.fantasmasEn(game.at(12,6)).get(0)
 
@@ -16,14 +16,14 @@ describe "Fantasmas y poocman" {
         game.addVisual(mainScreen)
         level1.iniciarNivel()
     }
-    test "Matan a poocman en (12,6)"{
+    test "Matan a pacman en (12,6)"{
         pacman.position(game.at(11,6))
         pacman.moverse()
-        fantasma.colisionarConPoocman(pacman)
+        fantasma.colisionarConpacman(pacman)
         assert.equals(asesinado, pacman.estado())
     }
 
-    test "Poocman vive en (10,6)"{
+    test "pacman vive en (10,6)"{
         pacman.position(game.at(10,6))
         pacman.moverse()
         assert.equals(normal, pacman.estado())

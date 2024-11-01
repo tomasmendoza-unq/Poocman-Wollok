@@ -1,6 +1,7 @@
 import wollok.game.*
 import estados.estado.*
 import Personaje.*
+import managers.levelManager.*
 
 object pacman inherits Personaje{
 
@@ -9,7 +10,7 @@ object pacman inherits Personaje{
     }
 
     method puntuacion(){
-      game.say(self, "Puntuacion: " + level.puntuacion())
+      game.say(self, "Puntuacion: " + levelManager.puntuacionLevel())
     }
 
     method asesinado() {
