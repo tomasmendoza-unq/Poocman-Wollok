@@ -1,4 +1,4 @@
-
+import fantasmaManager.*
 import escenarios.levels.level1.*
 import escenarios.levels.levelPrueba.*
 import heladoManager.*
@@ -24,12 +24,14 @@ object levelManager {
 
     method iniciarNivel(){
         game.allVisuals().forEach({visual => game.removeVisual(visual)})
+        fantasmaManager.clearLevel()
         levelActual.iniciarNivel()
     }
 
     method pasarDeNivel(){
         levelActual = levelActual.siguienteNivel()
     }
+
 
     method comioHelado(helado){
         levelActual.comioHelado(helado)

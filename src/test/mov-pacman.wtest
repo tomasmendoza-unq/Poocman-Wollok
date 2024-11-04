@@ -4,13 +4,15 @@ import game.*
 import managers.posiciones.*
 import escenarios.pantallaInicial.*
 import escenarios.levels.level1.*
+import managers.levelManager.*
 
 
 describe "Movimiento pacman" {
 
     method initialize(){
       game.addVisual(mainScreen)
-      level1.iniciarNivel()
+      levelManager.levelActual(level1)
+        mainScreen.iniciarJuego()
     }
 
     

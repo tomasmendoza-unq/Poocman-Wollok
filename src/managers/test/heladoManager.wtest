@@ -9,7 +9,7 @@ describe "Manager Helado"{
     method initialize(){
         game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        levelManager.iniciarNivel()
+        mainScreen.iniciarJuego()
     }
 
     test "hay Helados"{

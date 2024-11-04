@@ -11,7 +11,7 @@ describe "LEVEL MANAGER"{
     method initialize(){
         game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        levelManager.iniciarNivel()
+        mainScreen.iniciarJuego()
     }
     test "No hay mas helados en el level de prueba"{
         heladoManager.removerHelados()
@@ -19,11 +19,15 @@ describe "LEVEL MANAGER"{
     }
 
     test "pacman come el ultimo helado en el mapa de prueba"{
-        const heladoComun = game.getObjectsIn(game.at(3,1))
+        const heladoComun = heladoManager.heladoEn(game.at(3,1))
+        const heladoChoco = heladoManager.heladoEn(game.at(2,2))
         pacman.cambioDireccion(derecha)
         pacman.moverse()
-        heladoComun.get(0).colisionarConpacman(pacman)
-        assert.that(levelManager.hayHelado())
+        heladoComun.colisionarConPacman(pacman)
+        pacman.cambioDireccion(arriba)
+        pacman.moverse()
+        pacman.cambioDireccion(izquierda)
+        heladoChoco.colisionarConPacman(pacman)
         assert.equals(level1, levelManager.levelActual())
     }
 }

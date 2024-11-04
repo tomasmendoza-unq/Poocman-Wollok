@@ -5,6 +5,7 @@ import wollok.game.*
 import managers.fantasmaManager.*
 import managers.heladoManager.*
 import obstaculos.Muro.*
+import obstaculos.PuntoDeReaparicion.*
 
 
 object _ {
@@ -47,6 +48,14 @@ object g {
         const newFantasma = new Fantasma(position = position)
         game.addVisual(newFantasma)
         fantasmaManager.agregarFantasma(newFantasma)
+    }
+}
+
+object pr {
+    method dibujarEn(position){
+        const newPunto = new PuntoReparicion(position = position)
+        game.addVisual(newPunto)
+        fantasmaManager.agregarPunto(newPunto)
     }
 }
 

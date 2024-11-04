@@ -4,20 +4,22 @@ import escenarios.pantallaInicial.*
 import managers.posiciones.*
 import estados.estado.*
 import escenarios.levels.level1.*
+import managers.levelManager.*
 
 
 describe "Fantasmas y pacman" {
 
     method initialize(){
         game.addVisual(mainScreen)
-        level1.iniciarNivel()
+        levelManager.levelActual(level1)
+        mainScreen.iniciarJuego()
     }
 
     test "Se vuelve superpacman" {
         const helado = game.getObjectsIn(game.at(2,1))
         pacman.cambioDireccion(izquierda)
         pacman.moverse()
-        helado.get(0).colisionarConpacman(pacman)
+        helado.get(0).colisionarConPacman(pacman)
         assert.equals(superPacman ,pacman.estado())
     }
 

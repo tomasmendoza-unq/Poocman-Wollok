@@ -17,4 +17,8 @@ object heladoManager {
     method hayHelado(){
         return !helados.isEmpty()
     }
+
+    method heladoEn(position){
+        return game.getObjectsIn(position).get(0)
+    }
 }

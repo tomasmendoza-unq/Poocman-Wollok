@@ -1,5 +1,6 @@
 import managers.posiciones.*
 import managers.fantasmaManager.*
+import managers.levelManager.*
 import escenarios.pantallaInicial.*
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
@@ -8,7 +9,8 @@ describe "Posiciones test" {
 
     method initialize(){
         game.addVisual(mainScreen)
-        levelPrueba.iniciarNivel()
+        levelManager.levelActual(levelPrueba)
+        mainScreen.iniciarJuego()
     }
     const fantasma = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
 

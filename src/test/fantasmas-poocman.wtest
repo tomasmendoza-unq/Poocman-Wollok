@@ -1,3 +1,4 @@
+import managers.levelManager.*
 import escenarios.levels.levelPrueba.*
 import managers.posiciones.*
 import wollok.game.*
@@ -14,12 +15,13 @@ describe "Fantasmas y pacman" {
 
     method initialize(){
         game.addVisual(mainScreen)
-        level1.iniciarNivel()
+        levelManager.levelActual(level1)
+        mainScreen.iniciarJuego()
     }
     test "Matan a pacman en (12,6)"{
         pacman.position(game.at(11,6))
         pacman.moverse()
-        fantasma.colisionarConpacman(pacman)
+        fantasma.colisionarConPacman(pacman)
         assert.equals(asesinado, pacman.estado())
     }
 

@@ -1,5 +1,6 @@
 import wollok.game.*
 import personajes.pacman.*
+import managers.fantasmaManager.*
 class Estado {
     method direccion(direccion){
         return direccion
@@ -14,6 +15,7 @@ class Estado {
 object  superPacman  inherits Estado{
     override method colisionarConFantasma(fantasma){
         game.removeVisual(fantasma)
+        fantasmaManager.reaparecerFantasma(fantasma)
     }
 }
 

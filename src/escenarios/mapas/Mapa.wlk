@@ -2,8 +2,8 @@ import personajes.pacman.*
 
 class Mapa{
 
-   
     method laberinto()    
+    
 
     method dibujar() {
         game.height(self.laberinto().size())
@@ -16,5 +16,6 @@ class Mapa{
         })
         game.addVisual(pacman)
     }
+
 
 }
