@@ -1,0 +1,66 @@
+
+import managers.levelManager.*
+import escenarios.levels.levelPrueba.*
+import managers.posiciones.*
+import wollok.game.*
+import personajes.pacman.*
+import escenarios.pantallaInicial.*
+import escenarios.levels.level1.*
+import managers.fantasmaManager.*
+import estados.estado.*
+import escenarios.mapas.mapaDePrueba.*
+
+describe "Fantasmas y pacman" {
+
+    const fantasma = fantasmaManager.fantasmasEn(game.at(12,6)).get(0)
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(level1)
+        mainScreen.iniciarJuego()
+    }
+    test "Matan a pacman en (12,6)"{
+        pacman.position(game.at(11,6))
+        pacman.moverse()
+        fantasma.colisionarConPacman(pacman)
+        assert.equals(asesinado, pacman.estado())
+    }
+
+    test "pacman vive en (10,6)"{
+        pacman.position(game.at(10,6))
+        pacman.moverse()
+        assert.equals(normal, pacman.estado())
+    }
+}
+
+describe "movimiento fantasma"{
+    const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
+    const fantasmaB = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    test "Fantasma intenta mover arriba"{
+        fantasma.cambioDireccion(arriba)
+        assert.notThat(fantasma.sePuedeMover())    
+    }
+
+    test "Fantasma intenta moverse a otra direccion"{
+        fantasma.cambioDireccion(arriba)
+        fantasma.moverse() // para que actualice la direccion
+        fantasma.moverse() // luego se mueve
+        assert.equals(derecha, fantasma.direccion())
+        assert.equals(game.at(2,2),fantasma.position())
+    }
+
+    test "Fantasma borracho intenta moverse"{
+        fantasmaB.cambioDireccion(arriba)
+        fantasmaB.moverse() // para que actualice la direccion
+        fantasmaB.moverse() // luego se mueve
+        assert.equals(izquierda,fantasmaB.direccion() )
+        assert.equals(game.at(22,2), fantasmaB.position())
+    }
+}

@@ -1,0 +1,36 @@
+import managers.posiciones.*
+import managers.fantasmaManager.*
+import managers.levelManager.*
+import escenarios.pantallaInicial.*
+import personajes.pacman.*
+import escenarios.levels.levelPrueba.*
+import escenarios.mapas.mapaDePrueba.*
+
+describe "Posiciones test" {
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    const fantasma = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
+
+
+  test "fantasma se puede mover a la abajo o izquierda" {
+      assert.equals([izquierda],direcciones.direccionesValidas(fantasma))
+  }
+
+
+
+  test "Fantasma obtiene las direccion derecha"{
+    fantasma.position(game.at(1,2))
+
+    assert.equals(derecha, direcciones.direccionRandom(fantasma))
+  }
+
+  test "Fantasma devuelve izquierda"{
+    fantasma.moverse()
+    assert.that(direcciones.direcciones().contains(fantasma.direccion()) )
+  }
+}

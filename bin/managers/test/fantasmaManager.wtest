@@ -1,0 +1,35 @@
+import estados.estado.*
+import managers.fantasmaManager.*
+import managers.heladoManager.*
+import managers.levelManager.*
+import escenarios.levels.levelPrueba.*
+import personajes.pacman.*
+import escenarios.pantallaInicial.*
+import managers.posiciones.*
+import escenarios.mapas.mapaDePrueba.*
+
+describe "Fantasma Manager" {
+    
+    method initialize(){
+
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    test "Fantasma y pacman asesinandolos" {
+        const helado = heladoManager.heladoEn(game.at(2,2))
+        const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
+        pacman.moverse()
+        helado.colisionarConPacman(pacman)
+        assert.equals(superPacman, pacman.estado())
+        pacman.direccion(izquierda)
+        pacman.moverse()
+        fantasma.colisionarConPacman(pacman)
+        assert.notThat(game.allVisuals().contains(fantasma))
+        //llama al metodo del schedule
+        fantasmaManager.revivirFantasma(fantasma)
+        assert.that(game.allVisuals().contains(fantasma))
+
+    }
+}

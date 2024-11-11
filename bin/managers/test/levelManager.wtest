@@ -1,0 +1,35 @@
+import managers.posiciones.*
+import managers.levelManager.*
+import managers.heladoManager.*
+import escenarios.pantallaInicial.*
+import personajes.pacman.*
+import escenarios.levels.levelPrueba.*
+import escenarios.levels.level1.*
+import escenarios.mapas.mapaDePrueba.*
+describe "LEVEL MANAGER"{
+
+    method initialize(){
+
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    test "No hay mas helados en el level de prueba"{
+        heladoManager.removerHelados()
+        assert.notThat(levelManager.hayHelado())
+    }
+
+    test "pacman come el ultimo helado en el mapa de prueba"{
+        const heladoComun = heladoManager.heladoEn(game.at(3,1))
+        const heladoChoco = heladoManager.heladoEn(game.at(2,2))
+        pacman.cambioDireccion(derecha)
+        pacman.moverse()
+        heladoComun.colisionarConPacman(pacman)
+        pacman.cambioDireccion(arriba)
+        pacman.moverse()
+        pacman.cambioDireccion(izquierda)
+        heladoChoco.colisionarConPacman(pacman)
+        assert.equals(level1, levelManager.levelActual())
+    }
+}
