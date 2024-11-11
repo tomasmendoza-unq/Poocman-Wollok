@@ -1,3 +1,4 @@
+
 import managers.levelManager.*
 import escenarios.levels.levelPrueba.*
 import managers.posiciones.*
@@ -7,7 +8,7 @@ import escenarios.pantallaInicial.*
 import escenarios.levels.level1.*
 import managers.fantasmaManager.*
 import estados.estado.*
-
+import escenarios.mapas.mapaDePrueba.*
 
 describe "Fantasmas y pacman" {
 
@@ -38,7 +39,9 @@ describe "movimiento fantasma"{
 
     method initialize(){
         game.addVisual(mainScreen)
-        levelPrueba.iniciarNivel()
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
     }
     test "Fantasma intenta mover arriba"{
         fantasma.cambioDireccion(arriba)

@@ -2,7 +2,7 @@ import escenarios.obstaculos.Portal.*
 
 
 object portalManager{
-    const portales = []
+    const portales = #{}
 
     method agregarPortal(portal){
         portales.add(portal)

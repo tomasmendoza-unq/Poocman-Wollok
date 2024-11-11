@@ -6,12 +6,15 @@ import escenarios.levels.levelPrueba.*
 import personajes.pacman.*
 import escenarios.pantallaInicial.*
 import managers.posiciones.*
+import escenarios.mapas.mapaDePrueba.*
 
 describe "Fantasma Manager" {
     
     method initialize(){
+
         game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
         mainScreen.iniciarJuego()
     }
     test "Fantasma y pacman asesinandolos" {
