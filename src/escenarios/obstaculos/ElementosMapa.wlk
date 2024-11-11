@@ -4,9 +4,10 @@ import comidas.helados.*
 import wollok.game.*
 import managers.fantasmaManager.*
 import managers.heladoManager.*
+import managers.portalManager.*
 import obstaculos.Muro.*
 import obstaculos.PuntoDeReaparicion.*
-
+import obstaculos.Portal.*
 
 object _ {
     method dibujarEn(position) {
@@ -59,6 +60,13 @@ object pr {
     }
 }
 
+object por{
+    method dibujarEn(position) {
+      const newPortal = new Portal (position = position)
+      game.addVisual(newPortal)
+      portalManager.agregarPortal(newPortal)
+    }
+}
 
 //FANTASMA BORRACHO
 object fb {
