@@ -50,6 +50,17 @@ object fantasmaManager {
         puntosDeReapacion.clear()
     }
 
+    method cambiarDePosicionCon(personaje){
+        const fantasmaRandom = self.fantasmaRandom()
+        const tempPosicion = fantasmaRandom.position()
+        fantasmaRandom.position(personaje.position())
+        personaje.position(tempPosicion)//PENSAR EN COMO PONER AL PERSONAJE A SALVO Y QUE NO MUERA AL COLISIONAR
+    }
+
+    method fantasmaRandom(){
+        return fantasmasLevel.anyOne()
+    }
+
     method hayFantasma(_position){
         return not self.fantasmasEn(_position).isEmpty()
     }

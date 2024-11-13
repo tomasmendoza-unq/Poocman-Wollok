@@ -9,7 +9,7 @@ object mapa1 inherits Mapa{
             [m,h,m,_,_,m,h,m,h,m,_,_,m,h,m,_,_,m,h,m,t,_,m,h,m],
             [m,h,m,_,_,m,h,m,h,m,_,_,m,h,m,_,_,m,h,m,_,_,m,h,m],
             [m,h,m,m,m,m,h,m,h,m,m,m,m,h,m,m,m,m,h,m,m,m,m,h,m],
-            [m,h,h,h,h,h,h,h,h,h,h,h,h,fb,h,h,h,h,h,h,h,h,h,h,m],
+            [m,h,h,bh,h,h,h,h,h,h,h,h,h,fb,h,h,h,h,h,h,h,h,h,h,m],
             [m,t,m,m,m,m,h,m,m,m,m,m,m,h,m,m,m,m,h,m,m,m,m,h,m],
             [m,h,m,_,_,m,h,m,_,pr,_,_,m,h,m,_,_,m,h,m,_,_,m,h,m],
             [m,p,m,_,_,m,h,m,_,g,g,_,m,h,m,_,_,m,h,m,_,_,m,h,m],

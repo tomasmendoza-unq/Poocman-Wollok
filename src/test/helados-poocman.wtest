@@ -10,40 +10,38 @@ import managers.heladoManager.*
 import estados.estado.*
 import escenarios.mapas.mapaDePrueba.*
 
-describe "Pacman y los helados" {
-
-    method initialize(){
-        game.addVisual(mainScreen)
-        levelManager.levelActual(level1)
-        mainScreen.iniciarJuego()
-    }
-
-    test "pacman come una helado comun en (4,1) y tiene 1000 puntos" {
-        const heladoComun = game.getObjectsIn(game.at(4,1))
-        assert.equals(0, levelManager.puntuacionLevel())
-        pacman.cambioDireccion(derecha)
-        pacman.moverse()
-        heladoComun.get(0).colisionarConPacman(pacman)
-        assert.equals(1000, levelManager.puntuacionLevel())
-    }  
-    
-    
-}
-
 describe "Pacman y los helados en el mapa de prueba"{
 
     method initialize(){
         game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        levelPrueba.mapa(mapaPrueba)
         mainScreen.iniciarJuego()
     }
 
+    test "pacman come una helado comun en (4,1) y tiene 1000 puntos" {
+        const heladoComun = heladoManager.heladoEn(game.at(3,1))
+        assert.equals(0, levelManager.puntuacionLevel())
+        pacman.cambioDireccion(derecha)
+        pacman.moverse()
+        heladoComun.colisionarConPacman(pacman)
+        assert.equals(1000, levelManager.puntuacionLevel())
+    }  
+    
     test "pacman comiendo chocolate" {
         const helado = heladoManager.heladoEn(game.at(2,2))
         pacman.moverse()
         helado.colisionarConPacman(pacman)
         assert.equals(superPacman, pacman.estado())
+    }
 
+    test "pacman comiendo balde de helado"{
+        pacman.position(game.at(13,1))
+        const helado = heladoManager.heladoEn(game.at(13,1))
+        const tempPosition = pacman.position()
+        assert.equals(0, levelManager.puntuacionLevel())
+        helado.colisionarConPacman(pacman)
+        assert.equals(1000, levelManager.puntuacionLevel())
+        assert.notEquals(tempPosition, pacman.position( ))
     }
 }
+

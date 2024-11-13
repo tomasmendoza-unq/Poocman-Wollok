@@ -15,7 +15,7 @@ describe "Movimiento pacman" {
         mainScreen.iniciarJuego()
     }
 
-    
+  // hay que cambiar el mapa para hacer que funcione el test
   test "movimiento pacman hacia la derecha" {
     pacman.cambioDireccion(derecha)
     pacman.moverse()

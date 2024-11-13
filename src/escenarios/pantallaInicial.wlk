@@ -16,7 +16,7 @@ object mainScreen {
     method iniciarJuego(){
         if (self.inicioNivel()){
             levelManager.iniciarNivel()
-            game.onTick(20, "movimiento", {pacman.moverse()})
+            game.onTick(10, "movimiento", {pacman.moverse()})
             game.onTick(10, "movimiento fantasmas", {fantasmaManager.mover()})
         }
     }

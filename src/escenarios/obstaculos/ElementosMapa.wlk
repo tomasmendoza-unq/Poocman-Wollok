@@ -44,6 +44,15 @@ object c {
     }
 }
 
+object bh {
+    method dibujarEn(position){
+        const bh = new BaldeDeHelado(position = position)
+        game.addVisual(bh)
+        heladoManager.agregarHelado(bh)
+
+    }
+}
+
 object g {
     method dibujarEn(position) {
         const newFantasma = new Fantasma(position = position)
