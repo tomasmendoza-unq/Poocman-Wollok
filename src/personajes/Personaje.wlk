@@ -6,7 +6,8 @@ import estados.estado.*
 import escenarios.levels.level1.*
 
 class Personaje{
-    var property direccion = arriba
+    var property direccion = izquierda
+    var property direccionDeLaQueVengo = null 
     var property estado = normal
     var property proximaDireccion = null
     var property position = game.at(10,7)
@@ -32,6 +33,7 @@ class Personaje{
         }else if (self.sePuedeMoverHacia(direccion)) {
             position = direccion.siguiente(position)
         }
+        direccionDeLaQueVengo = direccion.opuesto()
     }
 
     method sePuedeMoverHacia(_direccion) {

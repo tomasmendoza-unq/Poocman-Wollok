@@ -86,6 +86,14 @@ object fb {
     }
 }
 
+object ft {
+    method dibujarEn(position) {
+        const newFantasma = new FantasmaTiburon(position = position)
+        game.addVisual(newFantasma)
+        fantasmaManager.agregarFantasma(newFantasma)
+    }
+}
+
 object b {
     method dibujarEn(position) {
         const b = new BebidaHelada(position = position)

@@ -4,7 +4,7 @@ import mapas.Mapa.*
 object mapa1 inherits Mapa{
     const laberinto = [
             [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,_,m],
-            [m,h,_,h,h,h,h,m,h,h,t,h,h,h,h,h,h,m,h,h,h,h,h,h,m],
+            [m,h,ft,h,h,h,h,m,h,h,t,h,h,h,h,h,h,m,h,h,h,h,h,h,m],
             [m,h,m,m,m,m,h,m,h,m,m,m,m,h,m,m,m,m,h,m,m,m,m,h,m],
             [m,h,m,_,_,m,h,m,h,m,_,_,m,h,m,_,_,m,h,m,t,_,m,h,m],
             [m,h,m,_,_,m,h,m,h,m,_,_,m,h,m,_,_,m,h,m,_,_,m,h,m],

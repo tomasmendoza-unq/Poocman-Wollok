@@ -30,6 +30,8 @@ class Fantasma inherits Personaje{
     method actualizarDireccion(){
         if(not self.sePuedeMover()){
             direccion = direcciones.direccionRandom(self)
+        } else {
+            direccion = estado.direccionMov(self,pacman)
         }
     }
 
@@ -38,6 +40,7 @@ class Fantasma inherits Personaje{
     }
 
 }
+
 
 //agregar fantasma que avance dos pixeles
 
@@ -50,5 +53,13 @@ class FantasmaBorracho inherits Fantasma(estado = borracho){
     
     override method normalidad (){
         estado = borracho
+    }
+}
+
+class FantasmaTiburon inherits Fantasma(estado = agresivo){
+
+
+    override method normalidad (){
+        estado = agresivo
     }
 }
