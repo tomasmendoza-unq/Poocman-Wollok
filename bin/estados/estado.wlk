@@ -1,5 +1,6 @@
 import wollok.game.*
 import personajes.pacman.*
+import managers.posiciones.*
 import managers.fantasmaManager.*
 class Estado {
     method direccion(direccion){
@@ -8,6 +9,10 @@ class Estado {
 
     method colisionarConFantasma(fantasma){
         pacman.asesinado() 
+    }
+
+    method direccionMov(personaje,agro){
+        return personaje.direccion()
     }
 }
 
@@ -25,10 +30,20 @@ object borracho inherits Estado{
     }
 }
 
+object agresivo inherits Estado {
+    override method direccionMov(personaje,agro){
+        return direcciones.direccionFavorable(personaje,agro)
+    }
+}
+
+
+
 object normal inherits Estado{}
 
 object asesinado inherits Estado {}
 
 object asustado inherits Estado {
-    
+    override method direccionMov(personaje,agro){
+        return direcciones.direccionParaHuir(personaje,agro)
+    }
 }

@@ -51,3 +51,18 @@ class Superchocolate inherits Helado{
     }
 
 }
+
+class BaldeDeHelado inherits Helado{
+    method image() {
+        return "baldeDeHelado.png"
+    } 
+
+    override method puntos(){
+        return 1000
+    }
+
+    override method colisionarConPacman(pacman){
+        super(pacman)
+        fantasmaManager.cambiarDePosicionCon(pacman)
+    }
+}

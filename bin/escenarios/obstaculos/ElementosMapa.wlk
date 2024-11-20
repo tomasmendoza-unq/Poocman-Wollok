@@ -44,6 +44,15 @@ object c {
     }
 }
 
+object bh {
+    method dibujarEn(position){
+        const bh = new BaldeDeHelado(position = position)
+        game.addVisual(bh)
+        heladoManager.agregarHelado(bh)
+
+    }
+}
+
 object g {
     method dibujarEn(position) {
         const newFantasma = new Fantasma(position = position)
@@ -72,6 +81,14 @@ object t{
 object fb {
     method dibujarEn(position) {
         const newFantasma = new FantasmaBorracho(position = position)
+        game.addVisual(newFantasma)
+        fantasmaManager.agregarFantasma(newFantasma)
+    }
+}
+
+object ft {
+    method dibujarEn(position) {
+        const newFantasma = new FantasmaTiburon(position = position)
         game.addVisual(newFantasma)
         fantasmaManager.agregarFantasma(newFantasma)
     }

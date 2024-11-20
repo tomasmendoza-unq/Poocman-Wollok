@@ -1,3 +1,4 @@
+import wollok.game.*
 object direcciones{
     const property direcciones = [arriba,abajo,izquierda,derecha]
 
@@ -6,9 +7,45 @@ object direcciones{
         return self.direccionesValidas(pesonaje).anyOne()
     }
 
+    // LA DIRECCION FAVORABLE ES LA QUE LO DEJA MAS CERCA hacia un agro 
+    // AGRO ES UN TARGET COMO PERSONAJE AL CUAL PERSEGUIRA
+    method direccionFavorable(personaje,agro){
+        if(self.direccionesValidasSinDeLaQueVengo(personaje).isEmpty()){
+            return personaje.direccionDeLaQueVengo()
+        } else {
+            return self.direccionConLaMenorDistanciaA(personaje,agro) 
+        }
+    }
+
+    method direccionParaHuir(personaje,agro){
+        if(self.direccionesValidasSinDeLaQueVengo(personaje).isEmpty()){
+            return personaje.direccionDeLaQueVengo()
+        } else {
+            return self.direccionConLaMayorDistanciaA(personaje,agro) 
+        }
+    }
+
+    method direccionConLaMenorDistanciaA(personaje,agro)  {
+        return self.direccionesValidasSinDeLaQueVengo(personaje).min({direccion => self.distanciaHacia(personaje,direccion, agro)})
+    }
+
+    method direccionConLaMayorDistanciaA(personaje,agro)  {
+        return self.direccionesValidasSinDeLaQueVengo(personaje).max({direccion => self.distanciaHacia(personaje,direccion, agro)})
+    }
+
+
+    method distanciaHacia(personaje,direccion,agro){
+        return direccion.siguiente(personaje.position()).distance(agro.position())
+    }
+    
+
 
     method direccionesValidas(personaje){
         return direcciones.filter({direccion => personaje.sePuedeMoverHacia(direccion)})
+    }
+
+    method direccionesValidasSinDeLaQueVengo(personaje){
+        return self.direccionesValidas(personaje).filter({direccion => personaje.direccionDeLaQueVengo() != direccion })
     }
 
 }
