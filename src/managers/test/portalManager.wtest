@@ -1,0 +1,32 @@
+import managers.portalManager.*
+import managers.posiciones.*
+import managers.levelManager.*
+import escenarios.pantallaInicial.*
+import personajes.pacman.*
+import escenarios.levels.levelPrueba.*
+import escenarios.mapas.mapaDePrueba.*
+import escenarios.obstaculos.Portal.*
+
+describe "Testeando portales en levelPrueba"{
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    const portal = portalManager.portalEn(game.at(5,2))
+    const portal1 = portalManager.portalEn(game.at(21,1))
+
+    test "Portal en 5,2. retorna el portal de 21,1. Con su direccion"{
+        assert.equals(portal1, portalManager.portalDeSalida(portal))
+        assert.equals(portal1.position(), portalManager.posicionDelPortalDeSalida(portal))
+    }
+
+    test "Pacman atraviesa el portal de 5,2 y sale en 21,1"{
+        pacman.position(game.at(5,2))
+        portal.colisionarConPacman(pacman)
+        assert.equals(game.at(21,1), pacman.position())
+        portal1.colisionarConPacman(pacman)
+        assert.equals(game.at(5,2),pacman.position())
+    }
+}

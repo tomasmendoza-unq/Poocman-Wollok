@@ -1,6 +1,7 @@
 
 import wollok.game.*
 import levelManager.*
+import estados.estado.*
 object fantasmaManager {
     const property fantasmasLevel = []
     const property puntosDeReapacion = #{}
@@ -31,7 +32,15 @@ object fantasmaManager {
     }
 
     method reaparecerFantasma(f){
-        game.schedule(5000, {self.revivirFantasma(f)})
+        game.schedule(5000, {
+            try{
+                self.revivirFantasma(f)
+            }
+            catch exception {
+                game.say(self, exception.toString())
+            }
+        })
+        
     }
 
     //precondicion: debe existir al menos un punto de reaparicion
@@ -47,6 +56,10 @@ object fantasmaManager {
     // proposito: cuando termine un nivel tiene que llamar al metodo
     method clearLevel(){
         fantasmasLevel.clear()
+        self.clearPuntosDeReaparicion()
+    }
+
+    method clearPuntosDeReaparicion(){
         puntosDeReapacion.clear()
     }
 
@@ -71,5 +84,9 @@ object fantasmaManager {
 
     method direccionesFantasma(){
         return fantasmasLevel.map({fantasma => fantasma.position()})
+    }
+
+    method estanAsustados(){
+        return fantasmasLevel.all({f => f.estado() == asustado})
     }
 }

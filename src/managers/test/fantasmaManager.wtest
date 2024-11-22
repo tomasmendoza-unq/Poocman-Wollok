@@ -32,4 +32,18 @@ describe "Fantasma Manager" {
         assert.that(game.allVisuals().contains(fantasma))
 
     }
+
+    test "Fantasma intenta revivir"{
+        fantasmaManager.clearPuntosDeReaparicion()
+        const helado = heladoManager.heladoEn(game.at(2,2))
+        const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
+        pacman.moverse()
+        helado.colisionarConPacman(pacman)
+        assert.equals(superPacman, pacman.estado())
+        pacman.direccion(izquierda)
+        pacman.moverse()
+        fantasma.colisionarConPacman(pacman)
+        assert.notThat(game.allVisuals().contains(fantasma))
+        assert.throwsException({fantasmaManager.revivirFantasma(fantasma)})
+    }
 }

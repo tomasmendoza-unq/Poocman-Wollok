@@ -1,0 +1,101 @@
+import managers.levelManager.*
+import escenarios.levels.levelPrueba.*
+import managers.posiciones.*
+import personajes.pacman.*
+import escenarios.pantallaInicial.*
+import managers.fantasmaManager.*
+import managers.heladoManager.*
+import estados.estado.*
+import escenarios.mapas.mapaDePrueba.*
+
+describe "Fantasmas y pacman" {
+
+    const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    test "Matan a pacman en (1,2)"{
+        pacman.position(game.at(1,2))
+        fantasma.colisionarConPacman(pacman)
+        assert.equals(asesinado, pacman.estado())
+    }
+}
+
+describe "movimiento fantasma"{
+    const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
+    const fantasmaB = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
+    const fantasmaTiburon = fantasmaManager.fantasmasEn(game.at(12,1)).get(0)
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        mainScreen.iniciarJuego()
+    }
+    test "Fantasma intenta mover arriba"{
+        fantasma.cambioDireccion(arriba)
+        assert.notThat(fantasma.sePuedeMover())    
+    }
+
+    test "Fantasma intenta moverse a otra direccion"{
+        fantasma.cambioDireccion(arriba)
+        fantasma.moverse() // para que actualice la direccion
+        fantasma.moverse() // luego se mueve
+        assert.equals(game.at(2,2),fantasma.position())
+    }
+
+    test "Fantasma borracho intenta moverse"{
+        fantasmaB.cambioDireccion(arriba)
+        fantasmaB.moverse()
+        assert.equals(izquierda,fantasmaB.direccion() )
+        assert.equals(game.at(22,2), fantasmaB.position())
+    }
+
+    test "Fantasma asustado en (12,2), alejandose hacia el borde derecho"{
+        const helado = heladoManager.heladoEn(game.at(2,2))
+        fantasma.position(game.at(12,1))
+        helado.colisionarConPacman(pacman)
+        fantasma.moverse()
+        assert.equals(arriba, fantasma.direccion())
+        fantasma.moverse()
+        assert.equals(derecha, fantasma.direccion())
+        fantasma.moverse()
+        assert.equals(derecha, fantasma.direccion())
+    }
+
+    test "Fantasma tiburon en (12,1), la direccion que lo deja mas cerca a pacman es izquierda"{
+        pacman.position(game.at(10,1))
+        fantasmaTiburon.moverse()
+        fantasmaTiburon.moverse()
+        assert.equals(pacman.position(), fantasmaTiburon.position())
+        pacman.cambioDireccion(arriba)
+        pacman.moverse()
+        fantasmaTiburon.moverse()
+        assert.equals(pacman.position(), fantasmaTiburon.position())
+    }
+
+    test "Fantasma tiburo se asusta y vuelve a su estado agresivo"{
+        fantasmaTiburon.asustarse()
+        assert.equals(asustado, fantasmaTiburon.estado())
+        fantasmaTiburon.normalidad ()
+        assert.equals(agresivo, fantasmaTiburon.estado())
+    }
+
+    test "Fantasma borracho se asusta y vuelve a su estado borracho"{
+        fantasmaB.asustarse()
+        assert.equals(asustado, fantasmaB.estado())
+        fantasmaB.normalidad()
+        assert.equals(borracho, fantasmaB.estado())
+    }
+
+    test "fantasma normal se asusta y vuelve a su estado normal"{
+        fantasma.asustarse()
+        assert.equals(asustado, fantasma.estado())
+        fantasma.normalidad()
+        assert.equals(normal, fantasma.estado())
+    }
+}

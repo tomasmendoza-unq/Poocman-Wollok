@@ -48,6 +48,10 @@ object direcciones{
         return self.direccionesValidas(personaje).filter({direccion => personaje.direccionDeLaQueVengo() != direccion })
     }
 
+    method estanLasDirecciones(list,ds){
+        return ds.all({d => list.contains(d)})
+    }
+
 }
 
 class Direccion {

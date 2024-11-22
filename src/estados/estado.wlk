@@ -38,8 +38,11 @@ object agresivo inherits Estado {
 
 
 
-object normal inherits Estado{}
-
+object normal inherits Estado{
+    override method direccionMov(personaje,agro){
+        return direcciones.direccionRandom(personaje)
+    }
+}
 object asesinado inherits Estado {}
 
 object asustado inherits Estado {

@@ -1,0 +1,91 @@
+
+import src.personajes.pacman.*
+import game.*
+import managers.posiciones.*
+import escenarios.pantallaInicial.*
+import escenarios.levels.levelPrueba.*
+import managers.levelManager.*
+import escenarios.mapas.mapaDePrueba.*
+import escenarios.mapas.mapaDePruebaTunel.*
+
+
+
+describe "Movimiento pacman" {
+
+    method initialize(){
+      game.addVisual(mainScreen)
+      levelManager.levelActual(levelPrueba)
+      levelPrueba.mapa(mapaPrueba)
+      mainScreen.iniciarJuego()
+    }
+
+    // hay que cambiar el mapa para hacer que funcione el test
+    test "movimiento pacman hacia la derecha" {
+      pacman.position(game.at(2,2))
+      pacman.cambioDireccion(derecha)
+      pacman.moverse()
+      assert.equals(3, pacman.position().x())  // Cambiado a 3, porque parte de la posición x = 2
+    }
+    test "movimiento pacman hacia la izquierda" {
+      pacman.position(game.at(2,2))
+      pacman.cambioDireccion(izquierda)
+      pacman.moverse()
+      assert.equals(1, pacman.position().x())  // Cambiado a 1, porque parte de la posición x = 2
+    }
+    test "movimiento pacman intenta ir arriba, pero como no puede sigue moviendose a la izq. Hasta que llega a (6,2)" {
+      pacman.position(game.at(7,2))
+      pacman.cambioDireccion(arriba)
+      pacman.moverse()
+      assert.equals(game.at(6,2), pacman.position())
+      pacman.moverse()
+      assert.equals(game.at(6,3), pacman.position())
+    }
+    test "movimiento pacman hacia abajo"{
+      pacman.position(game.at(6,2))
+      pacman.cambioDireccion(abajo)
+      pacman.moverse()
+      assert.equals(game.at(6,1), pacman.position())
+    }
+    test "movimiento hacia abajo hasta que pueda hacerlo"{
+        pacman.position(game.at(7,2))
+        pacman.cambioDireccion(abajo)
+        pacman.moverse()
+        assert.equals(game.at(6,2), pacman.position())
+        pacman.moverse()
+        assert.equals(game.at(6,1), pacman.position())
+    }
+
+}
+
+describe "Pacman saliendo del mapa"{
+
+    method initialize(){
+      game.addVisual(mainScreen)
+      levelManager.levelActual(levelPrueba)
+      levelPrueba.mapa(mapaPruebaTunel)
+      mainScreen.iniciarJuego()
+    }
+    test "pacman sale del mapa por el borde inferior en (6,0) y aparece en (6,3)"{
+      pacman.position(game.at(6,0))
+      pacman.cambioDireccion(abajo)
+      pacman.moverse()
+      assert.equals(game.at(6,3), pacman.position())
+    }
+    test "pacman sale del mapa por el borde superior en (6,3) y aparece en (6,0)"{
+      pacman.position(game.at(6,3))
+      pacman.cambioDireccion(arriba)
+      pacman.moverse()
+      assert.equals(game.at(6,0), pacman.position())
+    }
+    test "pacman sale del mapa por el borde izquierdo en (0,1) y aparece en (24,1)"{
+      pacman.position(game.at(0,1))
+      pacman.moverse()
+      assert.equals(game.at(24,1), pacman.position())
+    }
+    test "pacman sale del mapa por el borde derecho en (24,1) y aparece en (0,1)"{
+      pacman.position(game.at(24,1))
+      pacman.cambioDireccion(derecha)
+      pacman.moverse()
+      assert.equals(game.at(0,1), pacman.position())
+    }
+}

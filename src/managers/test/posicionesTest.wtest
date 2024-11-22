@@ -5,7 +5,7 @@ import escenarios.pantallaInicial.*
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
 import escenarios.mapas.mapaDePrueba.*
-
+import managers.heladoManager.*
 describe "Posiciones test" {
 
     method initialize(){
@@ -15,22 +15,46 @@ describe "Posiciones test" {
         mainScreen.iniciarJuego()
     }
     const fantasma = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
+    const fantasmaTiburon = fantasmaManager.fantasmasEn(game.at(12,1)).get(0)
 
 
-  test "fantasma se puede mover a la abajo o izquierda" {
-      assert.equals([izquierda],direcciones.direccionesValidas(fantasma))
-  }
+    test "fantasma se puede mover a la abajo o izquierda" {
+        assert.equals([izquierda],direcciones.direccionesValidas(fantasma))
+    }
+    test "Fantasma obtiene las direccion derecha"{
+        fantasma.position(game.at(1,2))
 
+        assert.equals(derecha, direcciones.direccionRandom(fantasma))
+    }
 
+    test "Fantasma devuelve izquierda"{
+        fantasma.moverse()
+        assert.that(direcciones.direcciones().contains(fantasma.direccion()) )
+    }
 
-  test "Fantasma obtiene las direccion derecha"{
-    fantasma.position(game.at(1,2))
+    test "Fantasma tiburon en (12,1), la direccion que lo deja mas cerca a pacman es izquierda"{
+        pacman.position(game.at(10,1))
+        assert.equals(izquierda, direcciones.direccionFavorable(fantasmaTiburon,pacman))
+        fantasmaTiburon.moverse()
+        assert.equals(izquierda, direcciones.direccionFavorable(fantasmaTiburon,pacman))
+        fantasmaTiburon.moverse()
+        assert.equals(pacman.position(), fantasmaTiburon.position())
+    }
+    test "Fantasma tiburon asustado en (12,1), la direccion que lo deja mas lejos a pacman es izquierda"{
+        fantasmaTiburon.asustarse()
+        assert.equals(derecha, direcciones.direccionParaHuir(fantasmaTiburon,pacman))
+        fantasmaTiburon.moverse()
+        assert.equals(arriba, direcciones.direccionParaHuir(fantasmaTiburon,pacman))
+        fantasmaTiburon.moverse()
+        assert.equals(derecha, direcciones.direccionParaHuir(fantasmaTiburon,pacman))
+        fantasmaTiburon.moverse()
+        assert.equals(derecha, direcciones.direccionParaHuir(fantasmaTiburon,pacman))
+    }
 
-    assert.equals(derecha, direcciones.direccionRandom(fantasma))
-  }
-
-  test "Fantasma devuelve izquierda"{
-    fantasma.moverse()
-    assert.that(direcciones.direcciones().contains(fantasma.direccion()) )
-  }
+    test "fantasma tiburon en (12,1), probando direcciones sin la que vengo"{
+        fantasmaTiburon.direccionDeLaQueVengo(izquierda)
+        assert.that(direcciones.estanLasDirecciones([arriba,abajo,derecha],direcciones.direccionesValidasSinDeLaQueVengo(fantasmaTiburon)))
+        fantasmaTiburon.direccionDeLaQueVengo(arriba)
+        assert.that(direcciones.estanLasDirecciones([izquierda,abajo,derecha],direcciones.direccionesValidasSinDeLaQueVengo(fantasmaTiburon)))
+    }
 }

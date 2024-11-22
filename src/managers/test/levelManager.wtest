@@ -23,6 +23,7 @@ describe "LEVEL MANAGER"{
     test "pacman come el ultimo helado en el mapa de prueba"{
         const heladoComun = heladoManager.heladoEn(game.at(3,1))
         const heladoChoco = heladoManager.heladoEn(game.at(2,2))
+        const balde = heladoManager.heladoEn(game.at(13,1))
         pacman.cambioDireccion(derecha)
         pacman.moverse()
         heladoComun.colisionarConPacman(pacman)
@@ -30,6 +31,8 @@ describe "LEVEL MANAGER"{
         pacman.moverse()
         pacman.cambioDireccion(izquierda)
         heladoChoco.colisionarConPacman(pacman)
+        pacman.position(game.at(13,1))
+        balde.colisionarConPacman(pacman)
         assert.equals(level1, levelManager.levelActual())
     }
 }

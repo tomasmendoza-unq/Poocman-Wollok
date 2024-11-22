@@ -1,0 +1,48 @@
+import wollok.game.*
+import personajes.pacman.*
+import escenarios.pantallaInicial.*
+import managers.posiciones.*
+import estados.estado.*
+import escenarios.levels.levelPrueba.*
+import managers.levelManager.*
+import managers.heladoManager.*
+import managers.fantasmaManager.*
+
+
+describe "Fantasmas y pacman" {
+
+    method initialize(){
+        game.addVisual(mainScreen)
+        levelManager.levelActual(levelPrueba)
+        mainScreen.iniciarJuego()
+    }
+
+    test "Se vuelve superpacman y se asustan los fantasmas" {
+        const helado = heladoManager.heladoEn(game.at(2,2))
+        pacman.cambioDireccion(izquierda)
+        pacman.moverse()
+        helado.colisionarConPacman(pacman)
+        assert.equals(superPacman ,pacman.estado())
+        assert.that(fantasmaManager.estanAsustados())
+        fantasmaManager.desasustarFantasmas()
+        assert.notThat(fantasmaManager.estanAsustados())
+    }
+
+    test "pacman se toma una bebida helada"{
+        const helado = heladoManager.heladoEn(game.at(3,2))
+        pacman.position(game.at(3,2))
+        helado.colisionarConPacman(pacman)
+        assert.equals(borracho, pacman.estado())
+        pacman.cambioDireccion(derecha)
+        assert.equals(izquierda, pacman.proximaDireccion())
+        pacman.cambioDireccion(arriba)
+        assert.equals(abajo, pacman.proximaDireccion())
+        pacman.cambioDireccion(izquierda)
+        assert.equals(derecha, pacman.proximaDireccion())
+        pacman.cambioDireccion(abajo)
+        assert.equals(arriba, pacman.proximaDireccion())
+    }
+
+
+}
+

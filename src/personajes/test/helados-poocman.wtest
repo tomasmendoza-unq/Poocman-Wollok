@@ -4,7 +4,6 @@ import src.personajes.pacman.*
 import escenarios.pantallaInicial.*
 import managers.posiciones.*
 import comidas.helados.*
-import escenarios.levels.level1.*
 import escenarios.levels.levelPrueba.*
 import managers.heladoManager.*
 import estados.estado.*
