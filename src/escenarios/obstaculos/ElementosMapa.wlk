@@ -78,13 +78,6 @@ object t{
 }
 
 //FANTASMA BORRACHO
-object fb {
-    method dibujarEn(position) {
-        const newFantasma = new FantasmaBorracho(position = position)
-        game.addVisual(newFantasma)
-        fantasmaManager.agregarFantasma(newFantasma)
-    }
-}
 
 object ft {
     method dibujarEn(position) {

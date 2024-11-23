@@ -3,7 +3,6 @@ import src.managers.fantasmaManager.*
 import src.managers.levelManager.*
 import src.managers.posiciones.*
 import estados.estado.*
-import escenarios.levels.level1.*
 
 class Personaje{
     var property direccion = izquierda

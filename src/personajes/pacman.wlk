@@ -2,6 +2,7 @@ import wollok.game.*
 import estados.estado.*
 import Personaje.*
 import managers.levelManager.*
+import managers.menuManager.*
 
 object pacman inherits Personaje{
 
@@ -15,8 +16,7 @@ object pacman inherits Personaje{
 
     method asesinado() {
       estado = asesinado
-      game.say(self, "La quede :P")
-      game.schedule(10, {game.stop()})
+      menuManager.perdio()
     }
 
     method superPacman() {

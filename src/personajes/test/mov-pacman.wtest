@@ -2,21 +2,22 @@
 import src.personajes.pacman.*
 import game.*
 import managers.posiciones.*
-import escenarios.pantallaInicial.*
 import escenarios.levels.levelPrueba.*
 import managers.levelManager.*
 import escenarios.mapas.mapaDePrueba.*
 import escenarios.mapas.mapaDePruebaTunel.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
 
 
 
 describe "Movimiento pacman" {
 
     method initialize(){
-      game.addVisual(mainScreen)
-      levelManager.levelActual(levelPrueba)
-      levelPrueba.mapa(mapaPrueba)
-      mainScreen.iniciarJuego()
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPrueba)
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
 
     // hay que cambiar el mapa para hacer que funcione el test
@@ -60,11 +61,12 @@ describe "Movimiento pacman" {
 describe "Pacman saliendo del mapa"{
 
     method initialize(){
-      game.addVisual(mainScreen)
-      levelManager.levelActual(levelPrueba)
-      levelPrueba.mapa(mapaPruebaTunel)
-      mainScreen.iniciarJuego()
+        levelManager.levelActual(levelPrueba)
+        levelPrueba.mapa(mapaPruebaTunel)
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
+
     test "pacman sale del mapa por el borde inferior en (6,0) y aparece en (6,3)"{
       pacman.position(game.at(6,0))
       pacman.cambioDireccion(abajo)

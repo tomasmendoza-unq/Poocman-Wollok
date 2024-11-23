@@ -37,21 +37,6 @@ class Fantasma inherits Personaje{
 
 }
 
-
-//agregar fantasma que avance dos pixeles
-
-class FantasmaBorracho inherits Fantasma(estado = borracho){
-
-    override method image(){
-        return "pepita.png"
-    }
-
-    
-    override method normalidad (){
-        estado = borracho
-    }
-}
-
 class FantasmaTiburon inherits Fantasma(estado = agresivo){
 
 

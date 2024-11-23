@@ -1,8 +1,11 @@
+
 import fantasmaManager.*
 import escenarios.levels.level1.*
 import escenarios.levels.levelPrueba.*
 import portalManager.*
 import heladoManager.*
+import personajes.pacman.*
+import src.managers.menuManager.*
 
 object levelManager {
 
@@ -22,16 +25,50 @@ object levelManager {
             self.iniciarNivel()
         }
     }
-
+//testear
     method iniciarNivel(){
-        game.allVisuals().forEach({visual => game.removeVisual(visual)})
-        fantasmaManager.clearLevel()
-        portalManager.clearLevel()
+        self.clear()
         levelActual.iniciarNivel()
+        pacman.normal()
+        self.addOnTicks()
     }
 
     method pasarDeNivel(){
-        levelActual = levelActual.siguienteNivel()
+        if(levelActual.siguienteNivel()==null){
+            self.gano()
+        } else {
+            levelActual = levelActual.siguienteNivel()
+        }
+    }
+
+    method level1(){
+        levelActual = level1
+    }
+
+    method gano(){
+        self.clear()
+        menuManager.gano()
+    }
+
+    method clear(){
+        game.allVisuals().forEach({visual => game.removeVisual(visual)})
+        self.removeOnTicks()
+        fantasmaManager.clearLevel()
+        portalManager.clearLevel()
+    }
+
+    method hayVisuales(){
+        return !game.allVisuals().isEmpty()
+    }
+
+    method removeOnTicks(){
+        game.removeTickEvent("movimiento")
+        game.removeTickEvent("movimiento fantasmas")
+    }
+
+    method addOnTicks(){
+        game.onTick(30, "movimiento", {pacman.moverse()})
+        game.onTick(30, "movimiento fantasmas", {fantasmaManager.mover()})
     }
 
 

@@ -1,7 +1,7 @@
 import managers.posiciones.*
 import managers.levelManager.*
 import managers.heladoManager.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
 import escenarios.levels.level1.*

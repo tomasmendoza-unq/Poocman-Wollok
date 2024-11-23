@@ -1,18 +1,20 @@
 import managers.portalManager.*
 import managers.posiciones.*
 import managers.levelManager.*
-import escenarios.pantallaInicial.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
+
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
 import escenarios.mapas.mapaDePrueba.*
 import escenarios.obstaculos.Portal.*
 
 describe "Testeando portales en levelPrueba"{
+
     method initialize(){
-        game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        levelPrueba.mapa(mapaPrueba)
-        mainScreen.iniciarJuego()
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
     const portal = portalManager.portalEn(game.at(5,2))
     const portal1 = portalManager.portalEn(game.at(21,1))
@@ -28,5 +30,11 @@ describe "Testeando portales en levelPrueba"{
         assert.equals(game.at(21,1), pacman.position())
         portal1.colisionarConPacman(pacman)
         assert.equals(game.at(5,2),pacman.position())
+    }
+
+    test "Manager verifica si hay portales"{
+        assert.that(portalManager.hayPortalesEnElNivel())
+        portalManager.clearLevel()
+        assert.notThat(portalManager.hayPortalesEnElNivel())
     }
 }

@@ -1,6 +1,6 @@
 import wollok.game.*
 import personajes.pacman.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 import managers.posiciones.*
 import estados.estado.*
 import escenarios.levels.level1.*

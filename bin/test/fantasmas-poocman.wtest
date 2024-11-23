@@ -4,7 +4,7 @@ import escenarios.levels.levelPrueba.*
 import managers.posiciones.*
 import wollok.game.*
 import personajes.pacman.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 import escenarios.levels.level1.*
 import managers.fantasmaManager.*
 import estados.estado.*

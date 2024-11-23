@@ -3,7 +3,7 @@ import src.personajes.pacman.*
 import src.comidas.helados.*
 import src.managers.posiciones.*
 import src.managers.levelManager.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 
 
 program pooc_man{

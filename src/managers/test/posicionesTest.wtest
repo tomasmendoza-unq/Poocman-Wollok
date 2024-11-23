@@ -1,18 +1,20 @@
 import managers.posiciones.*
 import managers.fantasmaManager.*
 import managers.levelManager.*
-import escenarios.pantallaInicial.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
+
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
 import escenarios.mapas.mapaDePrueba.*
 import managers.heladoManager.*
 describe "Posiciones test" {
 
+
     method initialize(){
-        game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        levelPrueba.mapa(mapaPrueba)
-        mainScreen.iniciarJuego()
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
     const fantasma = fantasmaManager.fantasmasEn(game.at(23,2)).get(0)
     const fantasmaTiburon = fantasmaManager.fantasmasEn(game.at(12,1)).get(0)

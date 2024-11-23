@@ -1,6 +1,7 @@
 import wollok.game.*
 import personajes.pacman.*
-import escenarios.pantallaInicial.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
 import managers.posiciones.*
 import estados.estado.*
 import escenarios.levels.levelPrueba.*
@@ -11,10 +12,11 @@ import managers.fantasmaManager.*
 
 describe "Fantasmas y pacman" {
 
+
     method initialize(){
-        game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        mainScreen.iniciarJuego()
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
 
     test "Se vuelve superpacman y se asustan los fantasmas" {

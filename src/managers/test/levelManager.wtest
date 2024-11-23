@@ -1,19 +1,23 @@
 import managers.posiciones.*
 import managers.levelManager.*
 import managers.heladoManager.*
-import escenarios.pantallaInicial.*
+import managers.fantasmaManager.*
+import managers.portalManager.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
+
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
 import escenarios.levels.level1.*
+import escenarios.levels.level2.*
 import escenarios.mapas.mapaDePrueba.*
 describe "LEVEL MANAGER"{
 
-    method initialize(){
 
-        game.addVisual(mainScreen)
+    method initialize(){
         levelManager.levelActual(levelPrueba)
-        levelPrueba.mapa(mapaPrueba)
-        mainScreen.iniciarJuego()
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
     test "No hay mas helados en el level de prueba"{
         heladoManager.removerHelados()
@@ -24,15 +28,32 @@ describe "LEVEL MANAGER"{
         const heladoComun = heladoManager.heladoEn(game.at(3,1))
         const heladoChoco = heladoManager.heladoEn(game.at(2,2))
         const balde = heladoManager.heladoEn(game.at(13,1))
-        pacman.cambioDireccion(derecha)
-        pacman.moverse()
+        const bebida = heladoManager.heladoEn(game.at(3,2))
         heladoComun.colisionarConPacman(pacman)
-        pacman.cambioDireccion(arriba)
-        pacman.moverse()
-        pacman.cambioDireccion(izquierda)
         heladoChoco.colisionarConPacman(pacman)
-        pacman.position(game.at(13,1))
         balde.colisionarConPacman(pacman)
+        bebida.colisionarConPacman(pacman)
+        assert.equals(level1, levelManager.levelActual())
+    }
+
+    test "Manager utiliza clear"{
+        assert.that(levelManager.hayVisuales())
+        assert.that(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
+        assert.that(portalManager.hayPortalesEnElNivel())
+        levelManager.clear()
+        assert.notThat(levelManager.hayVisuales())
+        assert.notThat(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
+        assert.notThat(portalManager.hayPortalesEnElNivel())
+    }
+
+    test "Gano el juego"{
+        levelManager.level1()
+        heladoManager.removerHelados()
+        levelManager.comioTodo()
+        assert.equals(level2, levelManager.levelActual())
+        heladoManager.removerHelados()
+        levelManager.comioTodo()
+        assert.equals(win, menuManager.estadoGame())
         assert.equals(level1, levelManager.levelActual())
     }
 }

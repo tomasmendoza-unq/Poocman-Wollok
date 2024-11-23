@@ -4,18 +4,19 @@ import managers.heladoManager.*
 import managers.levelManager.*
 import escenarios.levels.levelPrueba.*
 import personajes.pacman.*
-import escenarios.pantallaInicial.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
+
 import managers.posiciones.*
 import escenarios.mapas.mapaDePrueba.*
 
 describe "Fantasma Manager" {
     
-    method initialize(){
 
-        game.addVisual(mainScreen)
+    method initialize(){
         levelManager.levelActual(levelPrueba)
-        levelPrueba.mapa(mapaPrueba)
-        mainScreen.iniciarJuego()
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
     test "Fantasma y pacman asesinandolos" {
         const helado = heladoManager.heladoEn(game.at(2,2))
@@ -30,7 +31,6 @@ describe "Fantasma Manager" {
         //llama al metodo del schedule
         fantasmaManager.revivirFantasma(fantasma)
         assert.that(game.allVisuals().contains(fantasma))
-
     }
 
     test "Fantasma intenta revivir"{
@@ -45,5 +45,11 @@ describe "Fantasma Manager" {
         fantasma.colisionarConPacman(pacman)
         assert.notThat(game.allVisuals().contains(fantasma))
         assert.throwsException({fantasmaManager.revivirFantasma(fantasma)})
+    }
+
+    test "Manager realiza clear y las listas quedan vacias"{
+        assert.that(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
+        fantasmaManager.clearLevel()
+        assert.notThat(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
     }
 }

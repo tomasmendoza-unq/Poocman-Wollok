@@ -9,7 +9,6 @@ object heladoManager {
         helados.clear()
     }
 
-
     method comioHelado(h){
         helados.remove(h)
     }

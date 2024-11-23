@@ -4,7 +4,7 @@ import managers.heladoManager.*
 import managers.levelManager.*
 import escenarios.levels.levelPrueba.*
 import personajes.pacman.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 import managers.posiciones.*
 import escenarios.mapas.mapaDePrueba.*
 

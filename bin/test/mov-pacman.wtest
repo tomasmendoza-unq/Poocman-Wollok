@@ -2,7 +2,7 @@
 import src.personajes.pacman.*
 import game.*
 import managers.posiciones.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 import escenarios.levels.level1.*
 import managers.levelManager.*
 

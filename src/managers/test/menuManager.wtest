@@ -1,0 +1,47 @@
+import managers.levelManager.*
+import managers.heladoManager.*
+import managers.fantasmaManager.*
+import managers.portalManager.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
+import personajes.pacman.*
+import escenarios.levels.levelPrueba.*
+import escenarios.levels.level1.*
+
+describe "Menu Test"{
+    
+    method initialize(){
+        levelManager.levelActual(levelPrueba)
+        game.addVisual(inicio)
+        menuManager.pressEnter()
+    }
+
+    test "Pacman pierde y vuelve a jugar"{
+        pacman.asesinado()
+        assert.equals(level1, levelManager.levelActual())
+        assert.equals(gameOver, menuManager.estadoGame())
+        menuManager.pressEnter()
+        assert.equals(jugando, menuManager.estadoGame())
+    }
+
+    test "Pacman gana el juego y vuelve a jugar"{
+        levelManager.level1()
+        // pasa al nivel 2
+        heladoManager.removerHelados()
+        levelManager.comioTodo()
+        // Gana el juego
+        heladoManager.removerHelados()
+        levelManager.comioTodo()
+        assert.equals(win, menuManager.estadoGame())
+        menuManager.pressEnter()
+        assert.equals(jugando, menuManager.estadoGame())
+    }
+
+    test "Pacman pone pausa y saca la pausa"{
+        menuManager.pressP()
+        assert.equals(pausa, menuManager.estadoGame())
+        menuManager.pressP()
+        assert.equals(jugando, menuManager.estadoGame())
+    }
+
+}

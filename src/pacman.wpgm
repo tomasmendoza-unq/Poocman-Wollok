@@ -1,21 +1,28 @@
 import wollok.game.*
 import src.personajes.pacman.*
-import src.comidas.helados.*
 import src.managers.posiciones.*
 import src.managers.levelManager.*
-import escenarios.pantallaInicial.*
+import src.managers.menuManager.*
+import src.estados.estadosGame.*
 
 
-program pooc_man{
+program pac_man{
     game.width(25) 
     game.height(25)
     
-    game.addVisual(mainScreen)
+    game.addVisual(inicio)
 
     keyboard.enter().onPressDo({
-        mainScreen.iniciarJuego()
+        menuManager.pressEnter()
     })
     
+    keyboard.backspace().onPressDo({
+        menuManager.pressBackSpace()
+    })
+
+    keyboard.p().onPressDo({
+        menuManager.pressP()
+    })
     
     // TECLADO
 
@@ -24,7 +31,7 @@ program pooc_man{
     keyboard.right().onPressDo({pacman.cambioDireccion(derecha)})
     keyboard.up().onPressDo({pacman.cambioDireccion(arriba)})
     keyboard.down().onPressDo({pacman.cambioDireccion(abajo)})
-    keyboard.p().onPressDo({levelManager.puntuacionLevel()})
+    keyboard.o().onPressDo({levelManager.puntuacionLevel()})
 
     game.start()
 

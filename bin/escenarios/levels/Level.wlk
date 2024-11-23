@@ -2,7 +2,7 @@ import wollok.game.*
 import src.comidas.helados.*
 import src.personajes.fantasmas.*
 import src.managers.heladoManager.*
-import src.escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 
 class Level {
     var property puntuacion = 0

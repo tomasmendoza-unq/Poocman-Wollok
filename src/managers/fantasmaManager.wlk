@@ -59,6 +59,10 @@ object fantasmaManager {
         self.clearPuntosDeReaparicion()
     }
 
+    method hayFantasmasYPuntosDeReaparicion(){
+        return !(fantasmasLevel.isEmpty() || puntosDeReapacion.isEmpty())
+    }
+
     method clearPuntosDeReaparicion(){
         puntosDeReapacion.clear()
     }

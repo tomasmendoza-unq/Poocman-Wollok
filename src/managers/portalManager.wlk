@@ -24,4 +24,8 @@ object portalManager{
     method clearLevel(){
         portales.clear()
     }
+
+    method hayPortalesEnElNivel(){
+        return !portales.isEmpty()
+    }
 }

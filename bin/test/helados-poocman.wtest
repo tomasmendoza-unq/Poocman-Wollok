@@ -1,7 +1,7 @@
 import managers.levelManager.*
 import wollok.game.*
 import src.personajes.pacman.*
-import escenarios.pantallaInicial.*
+import pantallas.pantallaInicial.*
 import managers.posiciones.*
 import comidas.helados.*
 import escenarios.levels.level1.*
@@ -12,10 +12,12 @@ import escenarios.mapas.mapaDePrueba.*
 
 describe "Pacman y los helados en el mapa de prueba"{
 
+
     method initialize(){
-        game.addVisual(mainScreen)
         levelManager.levelActual(levelPrueba)
-        mainScreen.iniciarJuego()
+        levelPrueba.mapa(mapaPrueba)
+        game.addVisual(inicio)
+        menuManager.pressEnter()
     }
 
     test "pacman come una helado comun en (4,1) y tiene 1000 puntos" {
