@@ -67,8 +67,8 @@ object levelManager {
     }
 
     method addOnTicks(){
-        game.onTick(30, "movimiento", {pacman.moverse()})
-        game.onTick(30, "movimiento fantasmas", {fantasmaManager.mover()})
+        game.onTick(50, "movimiento", {pacman.moverse()})
+        game.onTick(100, "movimiento fantasmas", {fantasmaManager.mover()})
     }
 
 

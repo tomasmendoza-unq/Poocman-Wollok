@@ -18,7 +18,7 @@ class BebidaHelada inherits Helado{
 
 
     method image() {
-        return "bebida.jpg"
+        return "bebida.png"
     } 
 
     override method puntos(){
@@ -37,7 +37,7 @@ class Superchocolate inherits Helado{
 
 
     method image() {
-        return "heladoComun.png"
+        return "superChocolate.png"
     } 
 
     override method puntos(){
