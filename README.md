@@ -24,7 +24,6 @@ Movimiento: Usa las teclas de flechas (o WASD, si aplica) para moverte por el la
 Puntos: Cada punto recogido suma al puntaje.
 Superpoderes: Comer puntos especiales activa habilidades temporales, como comer fantasmas o moverse más rápido.
 Nuevos estados: Pooc-Man puede entrar en diferentes estados que alteran sus habilidades o cómo interactúa con el entorno.
-    Ejemplo de estado adicional: Puede volverse invisible durante unos segundos o generar un escudo que lo protege de un fantasma.
 Vidas: El jugador comienza con un número limitado de vidas. Al ser atrapado por un fantasma, pierde una vida.
 
 ## Dificultad
