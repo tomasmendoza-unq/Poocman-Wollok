@@ -2,23 +2,41 @@
 
 ## Equipo de desarrollo
 
-- Franco Vidal
-- Juan Jacobson
-- Alan Santillan
-- Tomas Mendoza
+    Franco Vidal
+    Juan Jacobson
+    Alan Santillan
+    Tomas Mendoza
+
+## Descripción del proyecto
+
+    Pooc-Man es una implementación personalizada del clásico videojuego Pac-Man, creada como parte de un proyecto educativo. El juego mantiene las mecánicas tradicionales, pero añade nuevos estados para el personaje principal, otorgándole características únicas que enriquecen la experiencia de juego.
 
 ## Capturas
 
-![img](https://imgs.search.brave.com/nIv75lWxMbSOF2_DDXlg7asE5aGC-90KO5n3abIw7zs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L3Bh/Y21hbi9pbWFnZXMv/OC84MC9QYWMtcGFj/LmpwZy9yZXZpc2lv/bi9sYXRlc3Qvc2Nh/bGUtdG8td2lkdGgt/ZG93bi8xNjA_Y2I9/MjAxMjAzMTcxMjU4/NTc)
 
 ## Reglas de Juego / Instrucciones
 
-(Escribirlas)
+# Objetivo principal
+    El jugador controla a Pooc-Man, quien debe recoger todos los puntos del laberinto mientras evita ser atrapado por los fantasmas.
+
+# Controles
+    Movimiento: Usa las teclas de flechas (o WASD, si aplica) para moverte por el laberinto.
+
+# Mecánicas principales
+    Puntos: Cada punto recogido suma al puntaje.
+    Superpoderes: Comer puntos especiales activa habilidades temporales, como comer fantasmas o moverse más rápido.
+    Nuevos estados: Pooc-Man puede entrar en diferentes estados que alteran sus habilidades o cómo interactúa con el entorno.
+        Ejemplo de estado adicional: Puede volverse invisible durante unos segundos o generar un escudo que lo protege de un fantasma.
+    Vidas: El jugador comienza con un número limitado de vidas. Al ser atrapado por un fantasma, pierde una vida.
+
+# Dificultad
+    La dificultad incrementa a medida que avanzan los niveles, con laberintos más complejos y fantasmas más rápidos.
+
+
 
 
 ## Otros
+    Programación Orientada a Objetos. Comisión 2. Universidad Nacional de Quilmes 
+    Versión de wollok: 0.2.7 
 
-- Curso/Facultad
-- Versión de wollok
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
 
