@@ -18,16 +18,17 @@ Pooc-Man es una implementación personalizada del clásico videojuego Pac-Man, c
 El jugador controla a Pooc-Man, quien debe recoger todos los puntos del laberinto mientras evita ser atrapado por los fantasmas.
 
 ## Controles
-Movimiento: Usa las teclas de flechas (o WASD, si aplica) para moverte por el laberinto.
+- Movimiento: Usa las teclas de flechas para moverte por el laberinto.
+- Pausa: Presionando p mientras se este jugando un nivel.
+- Cerrar el juego: Presionando retroceder.
+
 
 ## Mecánicas principales
-Puntos: Cada punto recogido suma al puntaje.
-Superpoderes: Comer puntos especiales activa habilidades temporales, como comer fantasmas.
-Nuevos estados: Pooc-Man puede entrar en diferentes estados que alteran sus habilidades o cómo interactúa con el entorno.
-Vidas: El jugador comienza con un número limitado de vidas. Al ser atrapado por un fantasma, pierde una vida.
-
-## Dificultad
-La dificultad incrementa a medida que avanzan los niveles, con laberintos más complejos y fantasmas más rápidos.
+- Puntos: Cada punto recogido suma al puntaje.
+- Superpoderes: Comer puntos especiales activa habilidades temporales, como comer fantasmas.
+- Nuevos estados: Pooc-Man puede entrar en diferentes estados que alteran sus habilidades o cómo interactúa con el entorno.
+- Derrota: Cuando Pooc-Man es atrapado por un fantasma, tiene la posibilidad de reiniciar el juego o cerrarlo.
+- Victoria: Cuando Pooc-Man come todas las comidas del juego y pasa los dos niveles.
 
 
 # Otros
