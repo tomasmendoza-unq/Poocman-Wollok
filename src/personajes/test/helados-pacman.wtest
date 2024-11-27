@@ -35,6 +35,11 @@ describe "Pacman y los helados en el mapa de prueba"{
         pacman.moverse()
         helado.colisionarConPacman()
         assert.equals(superPacman, pacman.estado())
+        assert.equals(30, tickManager.velocidadPacman())
+        assert.equals(160, tickManager.velocidadFantasmas())
+        tickManager.modificarVelocidad(tickManager.velocidadFantasmasNormal(),tickManager.velocidadPacmanNormal())
+        assert.equals(200, tickManager.velocidadFantasmas())
+        assert.equals(100, tickManager.velocidadPacman())
     }
 
     test "pacman comiendo balde de helado"{

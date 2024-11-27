@@ -8,6 +8,7 @@ import managers.portalManager.*
 import obstaculos.Muro.*
 import obstaculos.PuntoDeReaparicion.*
 import obstaculos.Portal.*
+import managers.posiciones.*
 
 object _ {
     method dibujarEn(position) {
@@ -65,6 +66,7 @@ object g {
     method dibujarEn(position) {
         const newFantasma = new Fantasma(position = position)
         game.addVisual(newFantasma)
+        direcciones.direccionRandomSiNoSePuedeMover(newFantasma)
         fantasmaManager.agregarFantasma(newFantasma)
     }
 }

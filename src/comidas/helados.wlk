@@ -51,6 +51,8 @@ class Superchocolate inherits Helado{
         super()
         pacman.superPacman()
         fantasmaManager.asustarFantasmas()
+        tickManager.modificarVelocidad(160,30)
+        game.schedule(5000,{tickManager.modificarVelocidad(tickManager.velocidadFantasmasNormal(),tickManager.velocidadPacmanNormal())})
     }
 
 }
@@ -82,6 +84,6 @@ class CremaDeCielo inherits Helado{
     override method colisionarConPacman(){
         super()
         tickManager.modificarVelocidad(50,250)
-        game.schedule(3000,{tickManager.modificarVelocidad(tickManager.velocidadFantasmasNormal(),tickManager.velocidadPacmanNormal())})
+        game.schedule(5000,{tickManager.modificarVelocidad(tickManager.velocidadFantasmasNormal(),tickManager.velocidadPacmanNormal())})
     }
 }

@@ -8,7 +8,6 @@ object fantasmaManager {
     const property puntosDeReapacion = #{}
 
     method agregarFantasma(fantasma){
-        direcciones.direccionRandomSiNoSePuedeMover(fantasma)
         fantasmasLevel.add(fantasma)
     }
 
