@@ -22,7 +22,7 @@ describe "Fantasmas y pacman" {
     test "Matan a pacman en (12,6)"{
         pacman.position(game.at(11,6))
         pacman.moverse()
-        fantasma.colisionarConPacman(pacman)
+        fantasma.colisionarConPacman()
         assert.equals(asesinado, pacman.estado())
     }
 

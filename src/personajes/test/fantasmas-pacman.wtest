@@ -21,7 +21,7 @@ describe "Fantasmas y pacman" {
     }
     test "Matan a pacman en (1,2)"{
         pacman.position(game.at(1,2))
-        fantasma.colisionarConPacman(pacman)
+        fantasma.colisionarConPacman()
         assert.equals(asesinado, pacman.estado())
         
     }
@@ -51,7 +51,7 @@ describe "movimiento fantasma"{
     test "Fantasma asustado en (12,2), alejandose hacia el borde derecho"{
         const helado = heladoManager.heladoEn(game.at(2,2))
         fantasma.position(game.at(12,1))
-        helado.colisionarConPacman(pacman)
+        helado.colisionarConPacman()
         fantasma.moverse()
         assert.equals(derecha, fantasma.direccion())
         fantasma.moverse()

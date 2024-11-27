@@ -1,5 +1,7 @@
 import wollok.game.*
 import Helado.*
+import personajes.pacman.*
+import src.Colision.Colision
 import src.managers.fantasmaManager.*
 
 class HeladoComun inherits Helado{
@@ -26,8 +28,8 @@ class BebidaHelada inherits Helado{
     }
 
 
-    override method colisionarConPacman(pacman){
-        super(pacman)
+    override method colisionarConPacman(){
+        super()
         pacman.borracho()
     }
 
@@ -44,8 +46,8 @@ class Superchocolate inherits Helado{
         return 1000
     }
 
-    override method colisionarConPacman(pacman){
-        super(pacman)
+    override method colisionarConPacman(){
+        super()
         pacman.superPacman()
         fantasmaManager.asustarFantasmas()
     }
@@ -61,8 +63,8 @@ class BaldeDeHelado inherits Helado{
         return 1000
     }
 
-    override method colisionarConPacman(pacman){
-        super(pacman)
+    override method colisionarConPacman(){
+        super()
         fantasmaManager.cambiarDePosicionCon(pacman)
     }
 }

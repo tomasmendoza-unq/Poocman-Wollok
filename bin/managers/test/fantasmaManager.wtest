@@ -21,11 +21,11 @@ describe "Fantasma Manager" {
         const helado = heladoManager.heladoEn(game.at(2,2))
         const fantasma = fantasmaManager.fantasmasEn(game.at(1,2)).get(0)
         pacman.moverse()
-        helado.colisionarConPacman(pacman)
+        helado.colisionarConPacman()
         assert.equals(superPacman, pacman.estado())
         pacman.direccion(izquierda)
         pacman.moverse()
-        fantasma.colisionarConPacman(pacman)
+        fantasma.colisionarConPacman()
         assert.notThat(game.allVisuals().contains(fantasma))
         //llama al metodo del schedule
         fantasmaManager.revivirFantasma(fantasma)

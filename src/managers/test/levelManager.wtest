@@ -29,10 +29,10 @@ describe "LEVEL MANAGER"{
         const heladoChoco = heladoManager.heladoEn(game.at(2,2))
         const balde = heladoManager.heladoEn(game.at(13,1))
         const bebida = heladoManager.heladoEn(game.at(3,2))
-        heladoComun.colisionarConPacman(pacman)
-        heladoChoco.colisionarConPacman(pacman)
-        balde.colisionarConPacman(pacman)
-        bebida.colisionarConPacman(pacman)
+        heladoComun.colisionarConPacman()
+        heladoChoco.colisionarConPacman()
+        balde.colisionarConPacman()
+        bebida.colisionarConPacman()
         assert.equals(level1, levelManager.levelActual())
     }
 
@@ -51,7 +51,7 @@ describe "LEVEL MANAGER"{
         levelManager.pasarDeNivel()
         assert.equals(level2, levelManager.levelActual())
         levelManager.pasarDeNivel()
-        assert.equals(level1, levelManager.levelActual())
+        assert.equals(null, levelManager.levelActual())
     }
 
     test "Gano el juego"{

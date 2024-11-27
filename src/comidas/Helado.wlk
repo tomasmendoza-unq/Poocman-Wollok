@@ -1,7 +1,7 @@
-
+import src.Colision.Colision
 import managers.levelManager.*
 
-class Helado {
+class Helado inherits Colision{
     const property position  
 
     method puntos()
@@ -11,12 +11,14 @@ class Helado {
         game.removeVisual(self)
     }
 
-    method colisionarConPacman(pacman){
+    override method colisionarConPacman(){
         self.remove()
         levelManager.comioHelado(self)
     }
 
-    method solida() {
+    override method colisionarConSombra(){}
+
+    override method solida() {
 		return false
 	}
 }

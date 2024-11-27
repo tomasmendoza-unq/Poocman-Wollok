@@ -26,7 +26,7 @@ class BebidaHelada inherits Helado{
     }
 
 
-    override method colisionarConPacman(pacman){
+    override method colisionarConPacman(){
         super(pacman)
         pacman.borracho()
     }
@@ -44,7 +44,7 @@ class Superchocolate inherits Helado{
         return 1000
     }
 
-    override method colisionarConPacman(pacman){
+    override method colisionarConPacman(){
         super(pacman)
         pacman.superPacman()
         fantasmaManager.asustarFantasmas()
@@ -61,7 +61,7 @@ class BaldeDeHelado inherits Helado{
         return 1000
     }
 
-    override method colisionarConPacman(pacman){
+    override method colisionarConPacman(){
         super(pacman)
         fantasmaManager.cambiarDePosicionCon(pacman)
     }

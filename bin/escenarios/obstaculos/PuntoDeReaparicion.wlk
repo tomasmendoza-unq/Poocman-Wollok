@@ -9,7 +9,7 @@ class PuntoReparicion {
     method solida() {
 		return false
 	}
-    method colisionarConPacman(pacman){}
+    method colisionarConPacman(){}
 
     method revivirFantasma(f){
         f.position(self.position())

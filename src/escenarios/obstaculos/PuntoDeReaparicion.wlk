@@ -1,4 +1,5 @@
-class PuntoReparicion {
+import src.Colision.Colision
+class PuntoReparicion inherits Colision{
 
     const property position
 
@@ -6,10 +7,12 @@ class PuntoReparicion {
         return "puntoReaparicion.png"
     }
 
-    method solida() {
+    override method solida() {
 		return false
 	}
-    method colisionarConPacman(pacman){}
+    override method colisionarConPacman(){}
+    
+    override method colisionarConSombra(){}
 
     method revivirFantasma(f){
         f.position(self.position())

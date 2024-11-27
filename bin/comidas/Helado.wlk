@@ -11,7 +11,7 @@ class Helado {
         game.removeVisual(self)
     }
 
-    method colisionarConPacman(pacman){
+    method colisionarConPacman(){
         self.remove()
         levelManager.comioHelado(self)
     }

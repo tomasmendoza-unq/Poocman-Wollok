@@ -10,7 +10,7 @@ class Fantasma inherits Personaje{
         return "fantasma-"+estado+".png"
     }
 
-    method colisionarConPacman(pacman){
+    method colisionarConPacman(){
         pacman.estado().colisionarConFantasma(self)
     }  
 

@@ -19,7 +19,7 @@ program pooc_man{
     
     // TECLADO
 
-    game.onCollideDo(pacman, {obj => obj.colisionarConPacman(pacman)})
+    game.onCollideDo(pacman, {obj => obj.colisionarConPacman()})
     keyboard.left().onPressDo({pacman.cambioDireccion(izquierda)})
     keyboard.right().onPressDo({pacman.cambioDireccion(derecha)})
     keyboard.up().onPressDo({pacman.cambioDireccion(arriba)})

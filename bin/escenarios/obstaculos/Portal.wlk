@@ -12,7 +12,7 @@ class Portal {
 		return false
 	}
 
-    method colisionarConPacman(pacman) {
+    method colisionarConPacman() {
       pacman.position(portalManager.posicionDelPortalDeSalida(self))
     }
 

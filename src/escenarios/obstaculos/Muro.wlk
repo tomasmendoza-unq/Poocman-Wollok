@@ -1,4 +1,6 @@
-class Muro {
+import src.Colision.Colision
+
+class Muro inherits Colision{
 
     const property position
 
@@ -6,8 +8,14 @@ class Muro {
         return "muro.png"
     }
 
-    method solida() {
-		return true
+    override method solida() {
+      return true
 	}
 
+    override method colisionarConPacman(){
+        
+    }
+    override method colisionarConSombra(){
+
+    }
 }

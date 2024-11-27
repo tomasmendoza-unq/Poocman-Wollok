@@ -25,7 +25,8 @@ program pac_man{
     
     // TECLADO
 
-    game.onCollideDo(pacman, {obj => obj.colisionarConPacman(pacman)})
+    game.onCollideDo(pacman, {obj => obj.colisionarConPacman()})
+    game.onCollideDo(pacman.sombra(), {obj => obj.colisionarConSombra()})
     keyboard.left().onPressDo({pacman.cambioDireccion(izquierda)})
     keyboard.right().onPressDo({pacman.cambioDireccion(derecha)})
     keyboard.up().onPressDo({pacman.cambioDireccion(arriba)})

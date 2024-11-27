@@ -25,14 +25,14 @@ describe "Pacman y los helados en el mapa de prueba"{
         assert.equals(0, levelManager.puntuacionLevel())
         pacman.cambioDireccion(derecha)
         pacman.moverse()
-        heladoComun.colisionarConPacman(pacman)
+        heladoComun.colisionarConPacman()
         assert.equals(1000, levelManager.puntuacionLevel())
     }  
     
     test "pacman comiendo chocolate" {
         const helado = heladoManager.heladoEn(game.at(2,2))
         pacman.moverse()
-        helado.colisionarConPacman(pacman)
+        helado.colisionarConPacman()
         assert.equals(superPacman, pacman.estado())
     }
 
@@ -41,7 +41,7 @@ describe "Pacman y los helados en el mapa de prueba"{
         const helado = heladoManager.heladoEn(game.at(13,1))
         const tempPosition = pacman.position()
         assert.equals(0, levelManager.puntuacionLevel())
-        helado.colisionarConPacman(pacman)
+        helado.colisionarConPacman()
         assert.equals(1000, levelManager.puntuacionLevel())
         assert.notEquals(tempPosition, pacman.position( ))
     }

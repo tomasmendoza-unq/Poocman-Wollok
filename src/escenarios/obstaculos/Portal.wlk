@@ -1,20 +1,25 @@
 import managers.portalManager.*
 import managers.posiciones.*
+import src.Colision.Colision
+import src.personajes.pacman.*
 
-class Portal {
+
+class Portal inherits Colision {
     var property position
 
     method image() {
         return "portal.png"
     }
 
-    method solida() {
-		return false
-	}
+    override method solida() {
+      return false
+	  }
 
-    method colisionarConPacman(pacman) {
+    override method colisionarConPacman() {
       pacman.position(portalManager.posicionDelPortalDeSalida(self))
       direcciones.direccionRandomSiNoSePuedeMover(pacman)
     }
+
+    override method colisionarConSombra(){}
 
 }

@@ -18,7 +18,7 @@ object _ {
 object p {
     method dibujarEn(position) {
         pacman.position(position)
-
+        pacman.dibujarSombra()
     }
 }
 

@@ -3,8 +3,9 @@ import src.managers.fantasmaManager.*
 import src.managers.levelManager.*
 import src.managers.posiciones.*
 import estados.estado.*
+import src.Colision.Colision
 
-class Personaje{
+class Personaje inherits Colision{
     var property direccion = izquierda
     var property direccionDeLaQueVengo = null 
     var property estado = normal
@@ -16,9 +17,10 @@ class Personaje{
         proximaDireccion = estado.direccion(_direccion)
     }
 
-    method solida() {
+    override method solida() {
 		return false
 	}
+    
 
     method remove() {
         game.removeVisual(self)  
@@ -50,3 +52,4 @@ class Personaje{
 
 
 }
+

@@ -23,7 +23,7 @@ describe "Fantasmas y pacman" {
         const helado = heladoManager.heladoEn(game.at(2,2))
         pacman.cambioDireccion(izquierda)
         pacman.moverse()
-        helado.colisionarConPacman(pacman)
+        helado.colisionarConPacman()
         assert.equals(superPacman ,pacman.estado())
         assert.that(fantasmaManager.estanAsustados())
         fantasmaManager.desasustarFantasmas()
@@ -33,7 +33,7 @@ describe "Fantasmas y pacman" {
     test "pacman se toma una bebida helada"{
         const helado = heladoManager.heladoEn(game.at(3,2))
         pacman.position(game.at(3,2))
-        helado.colisionarConPacman(pacman)
+        helado.colisionarConPacman()
         assert.equals(borracho, pacman.estado())
         pacman.cambioDireccion(derecha)
         assert.equals(izquierda, pacman.proximaDireccion())
