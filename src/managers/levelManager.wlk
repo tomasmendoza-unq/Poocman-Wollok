@@ -9,7 +9,7 @@ import src.managers.menuManager.*
 
 object levelManager {
 
-    var property  levelActual = levelPrueba
+    var property  levelActual = level1
     
     method hayHelado(){
         return heladoManager.hayHelado()

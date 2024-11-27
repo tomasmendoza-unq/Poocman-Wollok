@@ -2,19 +2,16 @@ import obstaculos.ElementosMapa.*
 import mapas.Mapa.*
 
 object mapa1 inherits Mapa{
-    const laberinto = [
-            [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,_,m],
-            [m,h,ft,h,h,h,h,m,h,h,t,h,h,h,h,h,h,m,h,h,h,h,h,h,m],
-            [m,h,m,m,m,m,h,m,h,m,m,m,m,h,m,m,m,m,h,m,m,m,m,h,m],
-            [m,h,m,_,_,m,h,m,h,m,_,_,m,h,m,_,_,m,h,m,t,_,m,h,m],
-            [m,h,m,_,_,m,h,m,h,m,_,_,m,h,m,_,_,m,h,m,_,_,m,h,m],
-            [m,h,m,m,m,m,h,m,h,m,m,m,m,h,m,m,m,m,h,m,m,m,m,h,m],
-            [m,h,h,bh,h,h,h,h,h,h,h,h,h,_,h,h,h,h,h,h,h,h,h,h,m],
-            [m,t,m,m,m,m,h,m,m,m,m,m,m,h,m,m,m,m,h,m,m,m,m,h,m],
-            [m,h,m,_,_,m,h,m,_,pr,_,_,m,h,m,_,_,m,h,m,_,_,m,h,m],
-            [m,p,m,_,_,m,h,m,_,g,g,_,m,h,m,_,_,m,h,m,_,_,m,h,m],
-            [m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,_,m]
-                          ].reverse() 
+    const laberinto = [        
+            [m,m,m,m,m,m,m,_,m,m,m,m,m],
+            [m,h,h,b,m,h,h,h,m,h,h,h,m],
+            [m,h,m,h,m,h,h,h,m,h,m,h,m],
+            [m,h,m,h,m,h,h,h,m,h,h,h,m],
+            [m,h,m,h,m,h,pr,h,m,h,m,h,m],
+            [m,h,m,h,_,h,h,h,m,h,m,h,m],
+            [m,p,m,h,h,h,m,h,ft,c,h,h,m],
+            [m,m,m,m,m,m,m,_,m,m,m,m,m]
+                ].reverse() 
     
     override method laberinto(){
         return laberinto
