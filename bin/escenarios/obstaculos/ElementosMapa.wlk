@@ -44,11 +44,11 @@ object c {
     }
 }
 
-object bh {
+object b {
     method dibujarEn(position){
-        const bh = new BaldeDeHelado(position = position)
-        game.addVisual(bh)
-        heladoManager.agregarHelado(bh)
+        const b = new BaldeDeHelado(position = position)
+        game.addVisual(b)
+        heladoManager.agregarHelado(b)
 
     }
 }

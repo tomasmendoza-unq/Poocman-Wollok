@@ -1,7 +1,5 @@
 import levels.Level.*
 import levels.level2.*
-import mapas.mapa1.*
-
 
 object level1 inherits Level{
 

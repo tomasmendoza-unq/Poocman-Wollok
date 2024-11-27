@@ -2,7 +2,7 @@ import wollok.game.*
 import src.comidas.helados.*
 import src.personajes.fantasmas.*
 import src.managers.heladoManager.*
-import mapas.mapa1.*
+import mapas.mapasLevel.*
 
 class Level {
     const property mapas = #{mapa1,mapa2,mapa3}

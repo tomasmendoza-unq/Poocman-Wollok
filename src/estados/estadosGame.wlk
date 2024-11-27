@@ -69,7 +69,7 @@ object inicio inherits EstadoGame {
 
 object win inherits EstadoGame {
     method image(){
-        return "main.jpg"
+        return "creditos.jpg"
     }
 
     method position(){

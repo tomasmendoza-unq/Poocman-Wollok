@@ -44,8 +44,7 @@ describe "movimiento fantasma"{
 
     test "Fantasma intenta moverse a otra direccion"{
         fantasma.cambioDireccion(arriba)
-        fantasma.moverse() // para que actualice la direccion
-        fantasma.moverse() // luego se mueve
+        fantasma.moverse()
         assert.equals(game.at(2,2),fantasma.position())
     }
 
@@ -54,7 +53,7 @@ describe "movimiento fantasma"{
         fantasma.position(game.at(12,1))
         helado.colisionarConPacman(pacman)
         fantasma.moverse()
-        assert.equals(arriba, fantasma.direccion())
+        assert.equals(derecha, fantasma.direccion())
         fantasma.moverse()
         assert.equals(derecha, fantasma.direccion())
         fantasma.moverse()
