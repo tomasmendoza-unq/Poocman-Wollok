@@ -5,7 +5,7 @@ object heladoManager {
         helados.add(h)
     } 
 
-    method removerHelados(){
+    method clearLevel(){
         helados.clear()
     }
 

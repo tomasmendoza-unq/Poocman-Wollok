@@ -24,17 +24,19 @@ object menuManager{
 
     method perdio(){
         self.gameOver()
-        levelManager.clear()
-        levelManager.level1()
-        game.addVisual(estadoGame)
+        self.reiniciar()
     }
 
     
     method gano(){
         self.win()
+        self.reiniciar()
+    }
+
+    method reiniciar(){
         levelManager.clear()
-        levelManager.level1()
         game.addVisual(estadoGame)
+        levelManager.level1()
     }
 
     method inicio(){

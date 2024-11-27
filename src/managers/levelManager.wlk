@@ -20,11 +20,20 @@ object levelManager {
 	}
 
     method comioTodo(){
-        if(not heladoManager.hayHelado()){
+        if (!heladoManager.hayHelado()) {
             self.pasarDeNivel()
-            self.iniciarNivel()
+            if (self.noHayMasNiveles()) {
+                self.gano()
+            }   else {
+                self.iniciarNivel()
+            }   
         }
     }
+
+    method noHayMasNiveles() {
+        return levelActual == null
+    }
+
 //testear
     method iniciarNivel(){
         self.clear()
@@ -34,11 +43,7 @@ object levelManager {
     }
 
     method pasarDeNivel(){
-        if(levelActual.siguienteNivel()==null){
-            self.gano()
-        } else {
             levelActual = levelActual.siguienteNivel()
-        }
     }
 
     method level1(){
@@ -46,7 +51,6 @@ object levelManager {
     }
 
     method gano(){
-        self.clear()
         menuManager.gano()
     }
 
@@ -55,6 +59,7 @@ object levelManager {
         self.removeOnTicks()
         fantasmaManager.clearLevel()
         portalManager.clearLevel()
+        heladoManager.clearLevel()
     }
 
     method hayVisuales(){

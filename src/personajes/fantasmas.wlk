@@ -23,9 +23,7 @@ class Fantasma inherits Personaje{
         self.actualizarDireccion()
     }
     
-    // method text(){
-    //     return "" +  self.direccion()
-    // }
+
 
     method actualizarDireccion(){
             direccion = estado.direccionMov(self,pacman)

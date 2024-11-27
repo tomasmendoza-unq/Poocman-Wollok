@@ -1,5 +1,5 @@
 import managers.portalManager.*
-
+import managers.posiciones.*
 
 class Portal {
     var property position
@@ -14,6 +14,7 @@ class Portal {
 
     method colisionarConPacman(pacman) {
       pacman.position(portalManager.posicionDelPortalDeSalida(self))
+      direcciones.direccionRandomSiNoSePuedeMover(pacman)
     }
 
 }

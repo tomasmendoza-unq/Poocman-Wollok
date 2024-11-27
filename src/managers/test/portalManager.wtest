@@ -16,20 +16,29 @@ describe "Testeando portales en levelPrueba"{
         game.addVisual(inicio)
         menuManager.pressEnter()
     }
-    const portal = portalManager.portalEn(game.at(5,2))
+    const portal = portalManager.portalEn(game.at(5,1))
     const portal1 = portalManager.portalEn(game.at(21,1))
 
-    test "Portal en 5,2. retorna el portal de 21,1. Con su direccion"{
+    test "Portal en 5,1. retorna el portal de 21,1. Con su direccion"{
         assert.equals(portal1, portalManager.portalDeSalida(portal))
         assert.equals(portal1.position(), portalManager.posicionDelPortalDeSalida(portal))
     }
 
-    test "Pacman atraviesa el portal de 5,2 y sale en 21,1"{
+    test "Pacman atraviesa el portal de 5,1 y sale en 21,1"{
         pacman.position(game.at(5,2))
         portal.colisionarConPacman(pacman)
         assert.equals(game.at(21,1), pacman.position())
         portal1.colisionarConPacman(pacman)
         assert.equals(game.at(5,2),pacman.position())
+    }
+
+    test "Pacman atraviesa el portal de 5,1 mirando hacia abajo, y sale mirando hacia la derecha, izquierda o arriba(direcciones validas)"{
+        pacman.position(game.at(5,1))
+        pacman.direccion(abajo)
+        portal.colisionarConPacman(pacman)
+        assert.that(direcciones.estanLasDirecciones([derecha,izquierda,arriba],[pacman.direccion()]))
+        assert.equals(game.at(21,1), pacman.position())
+
     }
 
     test "Manager verifica si hay portales"{

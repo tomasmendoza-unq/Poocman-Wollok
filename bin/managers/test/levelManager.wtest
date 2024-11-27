@@ -16,7 +16,7 @@ describe "LEVEL MANAGER"{
         mainScreen.iniciarJuego()
     }
     test "No hay mas helados en el level de prueba"{
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         assert.notThat(levelManager.hayHelado())
     }
 

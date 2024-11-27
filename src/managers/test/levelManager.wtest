@@ -20,7 +20,7 @@ describe "LEVEL MANAGER"{
         menuManager.pressEnter()
     }
     test "No hay mas helados en el level de prueba"{
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         assert.notThat(levelManager.hayHelado())
     }
 
@@ -46,12 +46,20 @@ describe "LEVEL MANAGER"{
         assert.notThat(portalManager.hayPortalesEnElNivel())
     }
 
+    test "Siguiente level"{
+        levelManager.levelActual(level1)
+        levelManager.pasarDeNivel()
+        assert.equals(level2, levelManager.levelActual())
+        levelManager.pasarDeNivel()
+        assert.equals(level1, levelManager.levelActual())
+    }
+
     test "Gano el juego"{
         levelManager.level1()
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         levelManager.comioTodo()
         assert.equals(level2, levelManager.levelActual())
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         levelManager.comioTodo()
         assert.equals(win, menuManager.estadoGame())
         assert.equals(level1, levelManager.levelActual())

@@ -17,7 +17,7 @@ describe "Manager Helado"{
         assert.that(heladoManager.hayHelado())
     }
     test "No hay Helados"{
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         assert.notThat(heladoManager.hayHelado())
     }
 }

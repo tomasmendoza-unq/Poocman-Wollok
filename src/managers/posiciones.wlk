@@ -38,6 +38,12 @@ object direcciones{
         return direccion.siguiente(personaje.position()).distance(agro.position())
     }
     
+    method direccionRandomSiNoSePuedeMover(personaje){
+
+        if(!personaje.sePuedeMover()){
+            personaje.direccion(self.direccionRandom(personaje))
+        }
+    }
 
 
     method direccionesValidas(personaje){

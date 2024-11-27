@@ -27,10 +27,10 @@ describe "Menu Test"{
     test "Pacman gana el juego y vuelve a jugar"{
         levelManager.level1()
         // pasa al nivel 2
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         levelManager.comioTodo()
         // Gana el juego
-        heladoManager.removerHelados()
+        heladoManager.clearLevel()
         levelManager.comioTodo()
         assert.equals(win, menuManager.estadoGame())
         menuManager.pressEnter()

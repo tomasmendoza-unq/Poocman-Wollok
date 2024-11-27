@@ -2,6 +2,7 @@
 import wollok.game.*
 import levelManager.*
 import estados.estado.*
+import managers.posiciones.*
 object fantasmaManager {
     const property fantasmasLevel = []
     const property puntosDeReapacion = #{}
@@ -71,7 +72,8 @@ object fantasmaManager {
         const fantasmaRandom = self.fantasmaRandom()
         const tempPosicion = fantasmaRandom.position()
         fantasmaRandom.position(personaje.position())
-        personaje.position(tempPosicion)//PENSAR EN COMO PONER AL PERSONAJE A SALVO Y QUE NO MUERA AL COLISIONAR
+        direcciones.direccionRandomSiNoSePuedeMover(fantasmaRandom)
+        personaje.position(tempPosicion)
     }
 
     method fantasmaRandom(){
