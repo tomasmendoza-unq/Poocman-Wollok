@@ -12,6 +12,12 @@ Pooc-Man es una implementación personalizada del clásico videojuego Pac-Man, c
 
 # Capturas
 
+![Screen1](https://github.com/user-attachments/assets/c941af6a-e915-457e-8fe3-e1543a7928d1)
+
+![Screen2](https://github.com/user-attachments/assets/c8c1e97b-575e-48f6-b884-25659e99fa03)
+
+
+
 # Reglas de Juego / Instrucciones
 
 ## Objetivo principal
