@@ -3,6 +3,7 @@ import Helado.*
 import personajes.pacman.*
 import src.Colision.Colision
 import src.managers.fantasmaManager.*
+import src.managers.tickManager.*
 
 class HeladoComun inherits Helado{
 
@@ -66,5 +67,21 @@ class BaldeDeHelado inherits Helado{
     override method colisionarConPacman(){
         super()
         fantasmaManager.cambiarDePosicionCon(pacman)
+    }
+}
+
+class CremaDeCielo inherits Helado{
+    method image() {
+        return "cremaDelCielo.png"
+    } 
+
+    override method puntos(){
+        return 1000
+    }
+
+    override method colisionarConPacman(){
+        super()
+        tickManager.modificarVelocidad(50,250)
+        game.schedule(3000,{tickManager.modificarVelocidad(tickManager.velocidadFantasmasNormal(),tickManager.velocidadPacmanNormal())})
     }
 }

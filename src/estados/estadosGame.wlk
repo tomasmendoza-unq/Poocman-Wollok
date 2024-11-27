@@ -1,10 +1,12 @@
 import managers.menuManager.*
 import managers.levelManager.*
+import managers.tickManager.*
 
 
 class EstadoGame{
 
     method pressEnter(){
+        levelManager.clear()
         levelManager.iniciarNivel()
         menuManager.jugando()
     }
@@ -17,7 +19,7 @@ object jugando inherits EstadoGame {
     override method pressEnter(){}
 
     override method pressP(){
-        levelManager.removeOnTicks()
+        tickManager.removeOnTicks()
         game.addVisual(pausa)
         menuManager.pausa()
     }
@@ -35,7 +37,7 @@ object pausa inherits EstadoGame{
     override method pressEnter(){}    
     
     override method pressP(){
-        levelManager.addOnTicks()
+        tickManager.addOnTicks()
         menuManager.jugando()
         game.removeVisual(self)
     }

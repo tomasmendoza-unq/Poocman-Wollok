@@ -12,7 +12,7 @@ object menuManager{
     }
 
     method pressBackSpace(){
-        levelManager.clear()
+
         game.addVisual(pantallaSalida)
         game.stop()
     }

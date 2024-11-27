@@ -6,6 +6,7 @@ import portalManager.*
 import heladoManager.*
 import personajes.pacman.*
 import src.managers.menuManager.*
+import tickManager.*
 
 object levelManager {
 
@@ -34,12 +35,11 @@ object levelManager {
         return levelActual == null
     }
 
-//testear
     method iniciarNivel(){
         self.clear()
         levelActual.iniciarNivel()
+        tickManager.addOnTicks()
         pacman.normal()
-        self.addOnTicks()
     }
 
     method pasarDeNivel(){
@@ -56,24 +56,14 @@ object levelManager {
 
     method clear(){
         game.allVisuals().forEach({visual => game.removeVisual(visual)})
-        self.removeOnTicks()
         fantasmaManager.clearLevel()
+        tickManager.removeOnTicks()
         portalManager.clearLevel()
         heladoManager.clearLevel()
     }
 
     method hayVisuales(){
         return !game.allVisuals().isEmpty()
-    }
-
-    method removeOnTicks(){
-        game.removeTickEvent("movimiento")
-        game.removeTickEvent("movimiento fantasmas")
-    }
-
-    method addOnTicks(){
-        game.onTick(100, "movimiento", {pacman.moverse()})
-        game.onTick(200, "movimiento fantasmas", {fantasmaManager.mover()})
     }
 
 

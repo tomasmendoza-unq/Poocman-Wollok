@@ -59,7 +59,7 @@ class Sombra inherits Personaje{
   override method colisionarConPacman(){
   }  
 
-    override method colisionarConSombra(){
-    }
+  override method colisionarConSombra(){
+  }
 
 }

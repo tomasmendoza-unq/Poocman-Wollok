@@ -44,6 +44,14 @@ object c {
     }
 }
 
+object i {
+    method dibujarEn(position) {
+        const i = new CremaDeCielo(position = position)
+        game.addVisual(i)
+        heladoManager.agregarHelado(i)
+    }
+}
+
 object bh {
     method dibujarEn(position){
         const bh = new BaldeDeHelado(position = position)
@@ -71,9 +79,9 @@ object pr {
 
 object t{
     method dibujarEn(position) {
-      const newPortal = new Portal (position = position)
-      game.addVisual(newPortal)
-      portalManager.agregarPortal(newPortal)
+        const newPortal = new Portal (position = position)
+        game.addVisual(newPortal)
+        portalManager.agregarPortal(newPortal)
     }
 }
 

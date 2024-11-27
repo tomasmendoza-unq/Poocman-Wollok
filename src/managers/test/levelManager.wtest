@@ -5,7 +5,7 @@ import managers.fantasmaManager.*
 import managers.portalManager.*
 import src.managers.menuManager.*
 import src.estados.estadosGame.*
-
+import src.managers.tickManager.*
 import personajes.pacman.*
 import escenarios.levels.levelPrueba.*
 import escenarios.levels.level1.*
@@ -29,21 +29,28 @@ describe "LEVEL MANAGER"{
         const heladoChoco = heladoManager.heladoEn(game.at(2,2))
         const balde = heladoManager.heladoEn(game.at(13,1))
         const bebida = heladoManager.heladoEn(game.at(3,2))
+        const crema = heladoManager.heladoEn(game.at(14,1))
         heladoComun.colisionarConPacman()
         heladoChoco.colisionarConPacman()
         balde.colisionarConPacman()
         bebida.colisionarConPacman()
+        crema.colisionarConPacman()
         assert.equals(level1, levelManager.levelActual())
     }
 
-    test "Manager utiliza clear"{
+    test "Manager utiliza clear y iniciar level"{
         assert.that(levelManager.hayVisuales())
         assert.that(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
         assert.that(portalManager.hayPortalesEnElNivel())
         levelManager.clear()
         assert.notThat(levelManager.hayVisuales())
+
         assert.notThat(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
-        assert.notThat(portalManager.hayPortalesEnElNivel())
+        assert.notThat(portalManager.hayPortalesEnElNivel ())
+        levelManager.iniciarNivel()
+        assert.that(levelManager.hayVisuales())
+        assert.that(fantasmaManager.hayFantasmasYPuntosDeReaparicion())
+        assert.that(portalManager.hayPortalesEnElNivel())
     }
 
     test "Siguiente level"{

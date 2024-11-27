@@ -1,0 +1,25 @@
+import managers.levelManager.*
+import src.estados.estadosGame.*
+import escenarios.levels.levelPrueba.*
+import src.managers.menuManager.*
+import src.managers.tickManager.*
+import escenarios.mapas.mapaDePrueba.*
+
+describe "Test tickManager"{
+    method initialize(){
+        levelManager.levelActual(levelPrueba)
+        game.addVisual(inicio)
+        menuManager.pressEnter()
+    }
+
+    test "modifica la velocidad de pacman y de los fantasmas"{
+        tickManager.velocidadFantasmas(10)
+        tickManager.velocidadPacman(20)
+
+        assert.equals(10, tickManager.velocidadFantasmas())
+        assert.equals(20, tickManager.velocidadPacman())
+
+        assert.throwsException({tickManager.velocidadFantasmas(-1)})
+        assert.throwsException({tickManager.velocidadPacman(-1)})
+    }
+}

@@ -7,6 +7,7 @@ import managers.posiciones.*
 import comidas.helados.*
 import escenarios.levels.levelPrueba.*
 import managers.heladoManager.*
+import managers.tickManager.*
 import estados.estado.*
 import escenarios.mapas.mapaDePrueba.*
 
@@ -44,6 +45,19 @@ describe "Pacman y los helados en el mapa de prueba"{
         helado.colisionarConPacman()
         assert.equals(1000, levelManager.puntuacionLevel())
         assert.notEquals(tempPosition, pacman.position( ))
+    }
+
+    test "pacman comiendo crema del cielo"{
+        pacman.position(game.at(14,1))
+        const crema = heladoManager.heladoEn(game.at(14,1))
+        assert.equals(200, tickManager.velocidadFantasmas())
+        assert.equals(100, tickManager.velocidadPacman())
+        crema.colisionarConPacman()
+        assert.equals(250, tickManager.velocidadPacman())
+        assert.equals(50, tickManager.velocidadFantasmas())
+        tickManager.modificarVelocidad(tickManager.velocidadFantasmasNormal(),tickManager.velocidadPacmanNormal())
+        assert.equals(200, tickManager.velocidadFantasmas())
+        assert.equals(100, tickManager.velocidadPacman())
     }
 }
 

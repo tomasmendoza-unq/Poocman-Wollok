@@ -2,8 +2,9 @@ import pacman.*
 import estados.estado.*
 import wollok.game.*
 import Personaje.*
-import src.Colision.Colision
 import src.managers.posiciones.*
+import src.Colision.Colision
+
 
 class Fantasma inherits Personaje{
 
