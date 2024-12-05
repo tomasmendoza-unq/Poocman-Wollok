@@ -1,11 +1,4 @@
-# Pooc-Man
-
-# Equipo de desarrollo
-
-    Franco Vidal
-    Juan Jacobson
-    Alan Santillan
-    Tomas Mendoza
+# Poocman
 
 # Descripción del proyecto
 Pooc-Man es una implementación personalizada del clásico videojuego Pac-Man, creada como parte de un proyecto educativo. El juego mantiene las mecánicas tradicionales, pero añade nuevos estados para el personaje principal, otorgándole características únicas que enriquecen la experiencia de juego.
